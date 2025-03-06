@@ -1,0 +1,25 @@
+.dashboard {
+  display: flex;
+  height: 100vh; /* Full screen height */
+}
+
+.main-content {
+  margin-left: 120px; /* Adjust the left margin to match the width of the sidebar (including space) */
+  padding: 20px;
+  width: calc(100% - 120px); /* Subtract sidebar width */
+  overflow-y: auto; /* Ensure the content scrolls when necessary */
+}
+
+.dashboard-welcome {
+  margin-top: 30px;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #333;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #666;
+}
