@@ -108,11 +108,14 @@ const Dashboard = () => {
         </section>
       </div>
 
+      <hr />
+
       <footer className="footer">
         <button>Dashboard</button>
         <button>Comparison</button>
         <button>Timeline</button>
-        <div>&copy; 2025 All Rights Reserved</div>
+        <div>Data provided by Google Books API </div>
+        <div>&copy; 2025 Shelfy. All rights reserved.</div>
       </footer>
     </div>
   );
