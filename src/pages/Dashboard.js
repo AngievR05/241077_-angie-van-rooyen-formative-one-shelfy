@@ -80,7 +80,7 @@ const Dashboard = () => {
         <hr />
 
         <section className="rating-shelf">
-          <h3>Rating Shelf</h3>
+          <h3>The Rating Shelf</h3>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={ratingData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -95,7 +95,7 @@ const Dashboard = () => {
         <hr />
 
         <section className="page-shelf">
-          <h3>Page Shelf</h3>
+          <h3>The Page Shelf</h3>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={pageData}>
               <CartesianGrid strokeDasharray="3 3" />
