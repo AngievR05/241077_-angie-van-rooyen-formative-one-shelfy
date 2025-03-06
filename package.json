@@ -18,11 +18,11 @@
   "bugs": {
     "url": "https://github.com/AngievR05/241077_-angie-van-rooyen-formative-one-shelfy/issues"
   },
-  "homepage": "https://github.com/AngievR05/241077_-angie-van-rooyen-formative-one-shelfy#readme",
+  "homepage": "/AngievR05/241077_-angie-van-rooyen-formative-one-shelf",
   "description": "",
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-router-dom": "^6.30.0",
     "react-scripts": "^5.0.1",
     "recharts": "^2.15.1",

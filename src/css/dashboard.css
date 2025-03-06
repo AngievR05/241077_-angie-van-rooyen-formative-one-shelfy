@@ -1,13 +1,13 @@
-.dashboard {
+/* .dashboard {
   display: flex;
-  height: 100vh; /* Full screen height */
+  height: 100vh; 
 }
 
 .main-content {
-  margin-left: 120px; /* Adjust the left margin to match the width of the sidebar (including space) */
+  margin-left: 120px; 
   padding: 20px;
-  width: calc(100% - 120px); /* Subtract sidebar width */
-  overflow-y: auto; /* Ensure the content scrolls when necessary */
+  width: calc(100% - 120px); 
+  overflow-y: auto; 
 }
 
 .dashboard-welcome {
@@ -22,4 +22,4 @@ h2 {
 p {
   font-size: 1.2rem;
   color: #666;
-}
+} */

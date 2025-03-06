@@ -1,25 +1,3 @@
-// import React from "react";
-// import Header from "../components/Header";
-// import "../css/dashboard.css";
-
-// const Dashboard = () => {
-//   return (
-//     <div className="dashboard">
-//       <div className="main-content">
-//         {/* Header */}
-//         <Header />
-        
-//         <div className="dashboard-welcome">
-//           <h2>Welcome to the Dashboard</h2>
-//           <p>This is where book data visualization will appear.</p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Dashboard;
-
 import React, { useState } from 'react';
 import books from '../assets/data/books';
 import DashboardCard from '../components/DashboardCard';
@@ -27,17 +5,31 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContaine
 
 const Dashboard = () => {
   const [selectedGenre, setSelectedGenre] = useState("Fiction");
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredBooks = books.filter(book => book.genre === selectedGenre);
+  // Filter books by genre and search query
+  const filteredBooks = books.filter(book => 
+    book.genre === selectedGenre && book.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   const ratingData = filteredBooks.map(book => ({ name: book.title, rating: book.rating }));
   const pageData = filteredBooks.map(book => ({ name: book.title, pages: book.pages }));
+
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
 
   return (
     <div className="dashboard">
       <header className="header">
         <h1>Project Name</h1>
-        <input type="text" placeholder="Search books..." className="search-bar" />
+        <input 
+          type="text" 
+          placeholder="Search books..." 
+          className="search-bar" 
+          value={searchQuery}
+          onChange={handleSearchChange} 
+        />
       </header>
 
       <div className="main-content">
@@ -52,8 +44,18 @@ const Dashboard = () => {
         <section className="data-shelf">
           <h3>Genre Mood Board</h3>
           <div className="genre-buttons">
-            <button onClick={() => setSelectedGenre("Fiction")}>Fiction</button>
-            <button onClick={() => setSelectedGenre("Non-fiction")}>Non-fiction</button>
+            <button 
+              onClick={() => setSelectedGenre("Fiction")} 
+              className={selectedGenre === "Fiction" ? 'active' : ''}
+            >
+              Fiction
+            </button>
+            <button 
+              onClick={() => setSelectedGenre("Non-fiction")} 
+              className={selectedGenre === "Non-fiction" ? 'active' : ''}
+            >
+              Non-fiction
+            </button>
             {/* Add more genres as needed */}
           </div>
           <h3>Top-Rated Books</h3>

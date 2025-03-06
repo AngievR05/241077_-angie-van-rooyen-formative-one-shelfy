@@ -1,44 +1,19 @@
-// import React from "react";
-// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import Sidebar from "./components/Sidebar"; // Import Sidebar
-// import Dashboard from "./pages/Dashboard"; // Example page
-// import Comparison from "./pages/Comparison"; // Example page
-// import Timeline from "./pages/Timeline"; // Example page
-// import "./css/sidebar.css"; // Import styles
-
-// function App() {
-//   return (
-//     <Router>
-//       <div className="app-container">
-//         <Sidebar /> {/* Sidebar fixed on the left */}
-//         <div className="content">
-//           <Routes>
-//             <Route path="/" element={<Dashboard />} />
-//             <Route path="/comparison" element={<Comparison />} />
-//             <Route path="/timeline" element={<Timeline />} />
-//           </Routes>
-//         </div>
-//       </div>
-//     </Router>
-//   );
-// }
-
-// export default App;
-
-
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Use Routes and Route in v6
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import Comparison from './pages/Comparison';
 import Timeline from './pages/Timeline';
+import NotFound from './pages/NotFound'; // Optional: If you want to handle unmatched routes.
 
 function App() {
   return (
-    <Router>
-      <Routes> 
-        <Route path="/" element={<Dashboard />} /> 
+    <Router basename="/AngievR05/241077_-angie-van-rooyen-formative-one-shelf">
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
         <Route path="/comparison" element={<Comparison />} />
         <Route path="/timeline" element={<Timeline />} />
+        {/* Optional: Handle unmatched routes */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
