@@ -63,8 +63,12 @@ const Dashboard = () => {
             </div>
           </section>
 
+          <hr />
+
           {/* Genre Mood Board */}
           <section className="data-shelf">
+            <h2>The Data Shelf</h2>
+            <div className="data-shelf-header">
             <h3>Genre Mood Board</h3>
             <p>Explore books by genre! Click on a category to discover top titles in Fiction, Mystery, Science Fiction, and more.</p>
             <div className="genre-buttons">
@@ -78,6 +82,7 @@ const Dashboard = () => {
                 </button>
               ))}
             </div>
+            </div>
           </section>
 
           {/* Top-Rated Books */}
@@ -90,9 +95,11 @@ const Dashboard = () => {
             </ol>
           </section>
 
+          <hr />
+
           {/* Top 15 Books */}
           <section className="top-books">
-            <h3>Top 15 Books of {selectedGenre}</h3>
+            <h2>Top 15 Books of {selectedGenre}</h2>
             <div className="top-books-list">
               {filteredBooks.slice(0, 15).map(book => (
                 <DashboardCard key={book.id} book={book} />
@@ -100,9 +107,11 @@ const Dashboard = () => {
             </div>
           </section>
 
+          <hr />
+
           {/* Rating Chart */}
-          <section className="rating-shelf"> 
-            <h3>The Rating Shelf</h3> 
+          <section className="rating-shelf">  <h3>The Rating Shelf</h3> 
+          <div className='rating-chart'>
             <ResponsiveContainer width="100%" height={300}> 
               <BarChart data={ratingData}> 
                 <CartesianGrid strokeDasharray="3 3" /> 
@@ -112,11 +121,15 @@ const Dashboard = () => {
                 <Bar dataKey="rating" fill="#E07A5F" /> 
                 </BarChart> 
               </ResponsiveContainer> 
+              </div>
           </section>
+
+          <hr />
 
           {/* Page Chart */}
           <section className="page-shelf">
             <h3>The Page Shelf</h3>
+            <div className='page-chart'>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={pageData}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -126,8 +139,12 @@ const Dashboard = () => {
                 <Bar dataKey="pages" fill="#3D405B" />
               </BarChart>
             </ResponsiveContainer>
+            </div>
           </section>
+
         </div>
+
+        <hr />
 
         {/* Footer */}
         <footer className="footer">

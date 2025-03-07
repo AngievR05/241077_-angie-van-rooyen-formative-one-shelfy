@@ -53,14 +53,17 @@ body {
 
 .content {
   flex-grow: 1;
-  padding: 20px;
+  padding: 10px;
+  background-color: var(--light-bg);
+  width: calc(100% - 140px);
+  margin-left: 0;
+  overflow-x: hidden; /* Hide horizontal overflow */
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: var(--dark-red); */
   color: black;
   padding: 15px 20px;
 }
@@ -69,20 +72,10 @@ body {
   margin: 0;
 }
 
-/* .search-bar {
-  padding: 8px;
-  border: none;
-  border-radius: 5px;
-}
-
-.search-bar:focus {
-  outline: none;
-} */
-
-/* Updated search bar with SVG inside */
 .search-container {
   position: relative;
-  width: 150px;
+  width: 125px;
+  margin-right: 55px;
 }
 
 .search-bar {
@@ -107,35 +100,37 @@ body {
   z-index: 1; /* Ensure it's above the input field */
 }
 
-
-/* Optional: Add some hover effects or focus effects to the search icon */
 .search-bar:focus + .search-icon {
   fill: #961A22; /* Change icon color when search bar is focused */
 }
-
 
 .main-content {
   padding: 20px;
 }
 
+
+.welcome-text, .total-books, .data-shelf-header, .top-rated, .top-books-list {
+  background-color: #F4DEC9;
+  border: 2px solid #961A22;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+
 .genre-buttons button {
   background-color: var(--primary-red);
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 12px 18px;
   margin: 5px;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .genre-buttons button:hover {
   background-color: var(--deep-orange);
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  margin: 5px;
-  cursor: pointer;
-  border-radius: 5px;
 }
 
 .genre-buttons .active {
@@ -149,24 +144,37 @@ body {
   gap: 15px;
 }
 
-.rating-shelf, .page-shelf {
+hr {
+  border: none; /* Remove default border */
+  height: 3px; /* Set the stroke thickness */
+  background-color: #6D0000; /* Set the color */
+  border-radius: 10px; /* Round the edges */
+  margin: 20px 0; /* Add vertical margin to space it out */
+}
+
+
+.rating-chart, .page-chart {
   margin-top: 20px;
   background-color: var(--beige);
   padding: 20px;
   border-radius: 10px;
+  border: 2px solid #961A22;
+  margin-top: 15px;
 }
 
 .footer {
-  /* background-color: var(--deep-red); */
   color: rgb(0, 0, 0);
   text-align: left;
-  padding: 15px;
+  padding-left: 0px;
+  margin-left: 0px;
+  bottom: 0;
+  justify-content: start;
 }
 
 .footer button {
-  background-color: var(--orange-red);
+  background-color: #BF2D20;
   color: white;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border: none;
   margin: 5px;
   cursor: pointer;
