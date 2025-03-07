@@ -110,7 +110,7 @@ const Dashboard = () => {
           <hr />
 
           {/* Rating Chart */}
-          <section className="rating-shelf">  <h3>The Rating Shelf</h3> 
+          <section className="rating-shelf">  <h2>The Rating Shelf</h2> 
           <div className='rating-chart'>
             <ResponsiveContainer width="100%" height={300}> 
               <BarChart data={ratingData}> 
@@ -128,7 +128,7 @@ const Dashboard = () => {
 
           {/* Page Chart */}
           <section className="page-shelf">
-            <h3>The Page Shelf</h3>
+            <h2>The Page Shelf</h2>
             <div className='page-chart'>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={pageData}>
