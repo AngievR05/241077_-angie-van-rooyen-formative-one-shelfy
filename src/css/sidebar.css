@@ -1,6 +1,6 @@
 Container for both logo and sidebar
 .sidebar-container {
-  position: fixed;
+  position: fixed; /* Ensures the entire sidebar stays in place */
   top: 0;
   left: 0;
   width: 100px; 
@@ -16,6 +16,9 @@ Container for both logo and sidebar
 .sidebar-logo-container {
   margin-bottom: 15px; 
   margin-top: 10px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sidebar-logo {
@@ -29,7 +32,7 @@ Container for both logo and sidebar
 
 .sidebar {
   width: 70px; 
-  height: 82vh; 
+  height: 77vh; 
   background-color: #7a1319; 
   position: sticky; 
   top: 0;
@@ -38,6 +41,8 @@ Container for both logo and sidebar
   align-items: center;
   border-radius: 64px; 
   margin-left: 15px;
+  padding: 20px 0;
+  transition: width 0.3s ease;
 }
 
 
@@ -47,7 +52,7 @@ Container for both logo and sidebar
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 30px; /* Spacing between menu items */
 }
 
 
@@ -89,11 +94,13 @@ Container for both logo and sidebar
 }
 
 
-.sidebar-divider {
+/* .sidebar-divider {
+  position: bottom;
   width: 42px;
   height: 2px;
   background-color: white;
-  margin-top: 25vh; 
+  margin-top: 25vh;  
+  margin-top: 10vh;
 }
 
 
@@ -103,7 +110,27 @@ Container for both logo and sidebar
   cursor: pointer;
   margin-top: auto;
   margin-bottom: 5vh; 
+} */
+
+.sidebar-divider {
+  width: 42px;
+  height: 2px;
+  background-color: white;
+  margin-bottom: 20px; /* Ensures 20px gap below the divider */
+  margin-top: auto; /* Pushes the divider to the bottom */
 }
+
+.sidebar-logout {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 
 .sidebar-logout img {
   width: 39px;

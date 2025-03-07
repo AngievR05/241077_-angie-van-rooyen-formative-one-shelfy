@@ -153,7 +153,7 @@ hr {
 }
 
 
-.rating-chart, .page-chart {
+.chart-section-text {
   margin-top: 20px;
   background-color: var(--beige);
   padding: 20px;
