@@ -1,4 +1,4 @@
-/* Container for both logo and sidebar
+Container for both logo and sidebar
 .sidebar-container {
   position: fixed;
   top: 0;
@@ -9,6 +9,7 @@
   flex-direction: column;
   align-items: center;
   z-index: 1000; 
+  background-color: #F8F7F3;
 }
 
 
@@ -129,4 +130,4 @@
 
 .main-content {
   margin-left: 20px; 
-} */
+}

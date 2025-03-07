@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import books from '../assets/data/books';
 import DashboardCard from '../components/DashboardCard';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
+import Sidebar from '../components/Sidebar';
+import { Search } from 'lucide-react';
+import '../css/dashboard.css';
+import { ReactComponent as SearchIcon } from '../assets/sidebar-icons/search-svgrepo-com.svg';
 
 const Dashboard = () => {
   const [selectedGenre, setSelectedGenre] = useState("Fiction");
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Filter books by genre and search query
   const filteredBooks = books.filter(book => 
     book.genre === selectedGenre && book.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -15,108 +18,126 @@ const Dashboard = () => {
   const ratingData = filteredBooks.map(book => ({ name: book.title, rating: book.rating }));
   const pageData = filteredBooks.map(book => ({ name: book.title, pages: book.pages }));
 
-  const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
-
   return (
     <div className="dashboard">
-      <header className="header">
-        <h1>Project Name</h1>
-        <input 
-          type="text" 
-          placeholder="Search books..." 
-          className="search-bar" 
-          value={searchQuery}
-          onChange={handleSearchChange} 
-        />
-      </header>
-
-      <div className="main-content">
-        <section className="welcome">
-          <h2>Welcome to the Book Dashboard</h2>
-          <p>Discover a world of books.</p>
-          <div>Total Books: {books.length}</div>
-        </section>
-
-        <hr />
-
-        <section className="data-shelf">
-          <h3>Genre Mood Board</h3>
-          <div className="genre-buttons">
-            <button 
-              onClick={() => setSelectedGenre("Fiction")} 
-              className={selectedGenre === "Fiction" ? 'active' : ''}
-            >
-              Fiction
-            </button>
-            <button 
-              onClick={() => setSelectedGenre("Non-fiction")} 
-              className={selectedGenre === "Non-fiction" ? 'active' : ''}
-            >
-              Non-fiction
-            </button>
-            {/* Add more genres as needed */}
+      <Sidebar />
+      <div className="content">
+        {/* Header */}
+        <header className="header">
+          <h1>Shelfy Dashboard</h1>
+          {/* <div className="search-container">
+            <Search className="search-icon" size={20} />
+            <input 
+              type="text" 
+              placeholder="Search books..." 
+              className="search-bar" 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div> */}
+          <div className="search-container">
+            <SearchIcon className="search-icon" size={20} />
+            <input 
+              type="text" 
+              placeholder="Search books..." 
+              className="search-bar" 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
           </div>
-          <h3>Top-Rated Books</h3>
-          <div className="top-rated-books">
-            {filteredBooks.map(book => (
-              <DashboardCard key={book.id} book={book} />
-            ))}
-          </div>
-        </section>
 
-        <hr />
+        </header>
 
-        <section className="top-books">
-          <h3>Top 15 Books of {selectedGenre}</h3>
-          <div className="top-books-list">
-            {filteredBooks.slice(0, 15).map(book => (
-              <DashboardCard key={book.id} book={book} />
-            ))}
-          </div>
-        </section>
+        <div className="main-content">
+          {/* Welcome Section */}
+          <section className="welcome">
+            <h2>Welcome</h2>
+            <div className="welcome-text">
+              <p>
+              Google Books API allows access to an extensive collection of book data, including metadata, previews, and availability. It enables searching for books by title, author, or keyword, making it useful for book discovery applications.
+              </p>
+            </div>
+            <div className="total-books">
+              <h3>Total Books</h3>
+              <p>{books.length.toLocaleString()} Books</p>
+            </div>
+          </section>
 
-        <hr />
+          {/* Genre Mood Board */}
+          <section className="data-shelf">
+            <h3>Genre Mood Board</h3>
+            <p>Explore books by genre! Click on a category to discover top titles in Fiction, Mystery, Science Fiction, and more.</p>
+            <div className="genre-buttons">
+              {["Fiction", "Non-fiction", "Fantasy", "Science Fiction", "Romance", "Comics", "Children", "Young Adult", "Horror", "Mystery & Thriller"].map(genre => (
+                <button 
+                  key={genre}
+                  onClick={() => setSelectedGenre(genre)} 
+                  className={selectedGenre === genre ? 'active' : ''}
+                >
+                  {genre}
+                </button>
+              ))}
+            </div>
+          </section>
 
-        <section className="rating-shelf">
-          <h3>The Rating Shelf</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={ratingData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Bar dataKey="rating" fill="#8884d8" />
-            </BarChart>
-          </ResponsiveContainer>
-        </section>
+          {/* Top-Rated Books */}
+          <section className="top-rated">
+            <h3>Top-Rated Books</h3>
+            <ol>
+              {filteredBooks.slice(0, 5).map(book => (
+                <li key={book.id}>{book.title}</li>
+              ))}
+            </ol>
+          </section>
 
-        <hr />
+          {/* Top 15 Books */}
+          <section className="top-books">
+            <h3>Top 15 Books of {selectedGenre}</h3>
+            <div className="top-books-list">
+              {filteredBooks.slice(0, 15).map(book => (
+                <DashboardCard key={book.id} book={book} />
+              ))}
+            </div>
+          </section>
 
-        <section className="page-shelf">
-          <h3>The Page Shelf</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={pageData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Bar dataKey="pages" fill="#82ca9d" />
-            </BarChart>
-          </ResponsiveContainer>
-        </section>
+          {/* Rating Chart */}
+          <section className="rating-shelf"> 
+            <h3>The Rating Shelf</h3> 
+            <ResponsiveContainer width="100%" height={300}> 
+              <BarChart data={ratingData}> 
+                <CartesianGrid strokeDasharray="3 3" /> 
+                <XAxis dataKey="name" /> 
+                <YAxis domain={[0,5]} /> 
+                <Tooltip /> 
+                <Bar dataKey="rating" fill="#E07A5F" /> 
+                </BarChart> 
+              </ResponsiveContainer> 
+          </section>
+
+          {/* Page Chart */}
+          <section className="page-shelf">
+            <h3>The Page Shelf</h3>
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={pageData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Bar dataKey="pages" fill="#3D405B" />
+              </BarChart>
+            </ResponsiveContainer>
+          </section>
+        </div>
+
+        {/* Footer */}
+        <footer className="footer">
+          <button>Landing Page</button>
+          <button>Comparison Page</button>
+          <button>Timeline Page</button>
+          <div>Data provided by Google Books API</div>
+          <div>&copy; 2025 Shelfy. All rights reserved.</div>
+        </footer>
       </div>
-
-      <hr />
-
-      <footer className="footer">
-        <button>Dashboard</button>
-        <button>Comparison</button>
-        <button>Timeline</button>
-        <div>Data provided by Google Books API </div>
-        <div>&copy; 2025 Shelfy. All rights reserved.</div>
-      </footer>
     </div>
   );
 };

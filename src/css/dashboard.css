@@ -23,3 +23,152 @@ p {
   font-size: 1.2rem;
   color: #666;
 } */
+
+/* src/css/dashboard.css */
+
+:root {
+  --dark-red: #961A22;
+  --primary-red: #BF2D1E;
+  --orange-red: #D55023;
+  --deep-orange: #E47A24;
+  --gold: #ECAF23;
+  --dark-maroon: #791118;
+  --light-bg: #F8F7F3;
+  --beige: #F4DEC9;
+  --deep-red: #6D0000;
+  --black: #000000;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #F8F7F3;
+  color: var(--black);
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard {
+  display: flex;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: var(--dark-red); */
+  color: black;
+  padding: 15px 20px;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+/* .search-bar {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+}
+
+.search-bar:focus {
+  outline: none;
+} */
+
+/* Updated search bar with SVG inside */
+.search-container {
+  position: relative;
+  width: 150px;
+}
+
+.search-bar {
+  padding: 8px 30px 8px 40px; /* Add padding for the icon on the left */
+  border: 1px solid #BF2D1E;
+  border-radius: 20px;
+  width: 100%; /* Ensure it takes up full width */
+  background-color: #F4DEC9;
+}
+
+.search-bar:focus {
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  z-index: 1; /* Ensure it's above the input field */
+}
+
+
+/* Optional: Add some hover effects or focus effects to the search icon */
+.search-bar:focus + .search-icon {
+  fill: #961A22; /* Change icon color when search bar is focused */
+}
+
+
+.main-content {
+  padding: 20px;
+}
+
+.genre-buttons button {
+  background-color: var(--primary-red);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.genre-buttons button:hover {
+  background-color: var(--deep-orange);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.genre-buttons .active {
+  background-color: var(--gold);
+  color: var(--black);
+}
+
+.top-books-list, .top-rated-books {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.rating-shelf, .page-shelf {
+  margin-top: 20px;
+  background-color: var(--beige);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.footer {
+  /* background-color: var(--deep-red); */
+  color: rgb(0, 0, 0);
+  text-align: left;
+  padding: 15px;
+}
+
+.footer button {
+  background-color: var(--orange-red);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
