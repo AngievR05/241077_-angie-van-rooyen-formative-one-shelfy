@@ -15,7 +15,7 @@
 .sidebar-container {
   position: sticky;
   top: 0;
-  width: 120px; /* Fixed width for sidebar */
+  width: 90px; 
   background-color: #F8F7F3;
   height: 100vh;
 }
@@ -38,7 +38,7 @@
   height: 70px;
   border-radius: 50%; 
   /* background-color: #fde6d4;  */
-  margin-left: -25px;
+  /* margin-left: -15px; */
 }
 
 /* Sidebar itself */

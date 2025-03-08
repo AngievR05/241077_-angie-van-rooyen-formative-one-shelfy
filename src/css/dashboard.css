@@ -39,13 +39,13 @@ p {
   --black: #000000;
 }
 
-/* body {
+body {
   font-family: Arial, sans-serif;
   background-color: #F8F7F3;
   color: var(--black);
   margin: 0;
   padding: 0;
-} */
+}
 
 .dashboard {
   display: flex;
@@ -55,9 +55,8 @@ p {
 .content {
   flex-grow: 1;
   padding-top: 10px;
-  margin-left: 0; /* Match sidebar width */
   background-color: var(--light-bg);
-  width: calc(100% - 120px);
+  /* width: calc(100% - 120px); */
   overflow-x: hidden;
 }
 
