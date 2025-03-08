@@ -1,4 +1,4 @@
-const books = [
+export const books = [
   // Fiction Books
   { id: 1, title: "Fiction Book 1", author: "Author A", genre: "Fiction", rating: 4.5, price: 20, pages: 320, image: "/images/fiction1.jpg", description: "A gripping fiction story." },
   { id: 2, title: "Fiction Book 2", author: "Author B", genre: "Fiction", rating: 4.2, price: 18, pages: 290, image: "/images/fiction2.jpg", description: "A thrilling fiction adventure." },
