@@ -1,0 +1,43 @@
+.comparison-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .book-selection {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .book-card {
+    width: 45%;
+    padding: 15px;
+    border: 2px solid #800000;
+    border-radius: 8px;
+    background-color: #fbeee6;
+  }
+  
+  .book-details p {
+    margin: 5px 0;
+  }
+  
+  .data-visualization {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .chart-container {
+    width: 30%;
+    text-align: center;
+  }
+  
+  .combined-data {
+    margin-top: 20px;
+    padding: 15px;
+    border: 2px solid #800000;
+    border-radius: 8px;
+    background-color: #fbeee6;
+    text-align: center;
+  }
+  
