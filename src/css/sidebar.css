@@ -1,6 +1,6 @@
-Container for both logo and sidebar
+/* Container for the sidebar and logo */
 .sidebar-container {
-  position: fixed; /* Ensures the entire sidebar stays in place */
+  position: fixed; /* Keeps the sidebar and logo fixed in place */
   top: 0;
   left: 0;
   width: 100px; 
@@ -12,15 +12,18 @@ Container for both logo and sidebar
   background-color: #F8F7F3;
 }
 
-
+/* Logo container inside the sidebar */
 .sidebar-logo-container {
-  margin-bottom: 15px; 
-  margin-top: 10px; 
+  margin-bottom: 10px; 
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%; /* Makes sure the logo container takes up full width of sidebar */
+  padding: 10px 0; /* Adds some padding to the top and bottom */
+  margin-left: -10px;
 }
 
+/* Logo styling */
 .sidebar-logo {
   width: 70px;
   height: 70px;
@@ -29,13 +32,14 @@ Container for both logo and sidebar
   margin-left: 15px;
 }
 
-
+/* Sidebar itself */
 .sidebar {
   width: 70px; 
   height: 77vh; 
   background-color: #7a1319; 
-  position: sticky; 
-  top: 0;
+  position: fixed; /* Keeps sidebar fixed in place */
+  top: 100px; /* Pushes the sidebar below the logo */
+  left: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,7 +49,7 @@ Container for both logo and sidebar
   transition: width 0.3s ease;
 }
 
-
+/* Menu items */
 .sidebar-menu {
   list-style: none;
   padding: 0;
@@ -55,12 +59,12 @@ Container for both logo and sidebar
   gap: 30px; /* Spacing between menu items */
 }
 
-
+/* Sidebar menu item styling */
 .sidebar-menu li {
   margin: 20px 0;
 }
 
-
+/* Sidebar menu link styling */
 .sidebar-menu a {
   display: flex;
   justify-content: center;
@@ -72,46 +76,29 @@ Container for both logo and sidebar
   transition: background-color 0.3s ease;
 }
 
-
+/* Hover effect for sidebar menu links */
 .sidebar-menu a:hover {
   background-color: #f6b73c; 
 }
 
-
+/* Icon in the sidebar */
 .sidebar-menu img {
   width: 30px;
   height: 30px;
   filter: invert(1); 
 }
 
+/* Active menu item styling */
 .sidebar-menu .active {
   background-color: #e24c2d; 
 }
 
-
+/* Active item icon */
 .sidebar-menu .active img {
   filter: invert(1);
 }
 
-
-/* .sidebar-divider {
-  position: bottom;
-  width: 42px;
-  height: 2px;
-  background-color: white;
-  margin-top: 25vh;  
-  margin-top: 10vh;
-}
-
-
-.sidebar-logout {
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin-top: auto;
-  margin-bottom: 5vh; 
-} */
-
+/* Divider between sections */
 .sidebar-divider {
   width: 42px;
   height: 2px;
@@ -120,6 +107,7 @@ Container for both logo and sidebar
   margin-top: auto; /* Pushes the divider to the bottom */
 }
 
+/* Logout button styling */
 .sidebar-logout {
   background: none;
   border: none;
@@ -131,7 +119,7 @@ Container for both logo and sidebar
   flex-direction: column;
 }
 
-
+/* Logout icon styling */
 .sidebar-logout img {
   width: 39px;
   height: 30px;
@@ -139,7 +127,7 @@ Container for both logo and sidebar
   transform: scaleX(-1);
 }
 
-
+/* Container for the rest of the app */
 .app-container {
   display: flex;
   margin-left: 100px; 
@@ -147,7 +135,7 @@ Container for both logo and sidebar
   overflow: hidden;
 }
 
-
+/* Content area */
 .content {
   width: 100%;
   overflow-y: auto; 
