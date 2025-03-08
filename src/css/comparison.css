@@ -64,12 +64,12 @@ body {
   }
   
   .main-content {
-    flex-grow: 1;
-    padding: 10px;
-    background-color: var(--light-bg);
-    width: calc(100% - 140px);
-    margin-left: 0;
-    overflow-x: hidden; 
+      flex-grow: 1;
+  padding: 10px;
+  background-color: var(--light-bg);
+  width: calc(100% - 140px);
+  margin-left: 0;
+  overflow-x: hidden; 
   }
  
   hr {
@@ -103,17 +103,64 @@ body {
     margin: 5px 0;
   }
   
-  .data-visualization {
+  /* .data-visualization {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    flex-direction: column;
   }
   
   .chart-container {
+    display: flex;
     width: 30%;
     text-align: center;
+    background-color: #F4DEC9;
+    border: 2px solid #961A22;
+    border-radius: 10px;
+    align-items: flex-start;
+    justify-content: space-between;
   }
+   */
+.data-visualization {
+    display: flex;
+    flex-direction: column; /* Title on top, charts below */
+    align-items: flex-start; /* Keep left alignment */
+    margin-top: 20px;
+    width: 100%;
+}
+
+.data-visualization h2 {
+    margin-bottom: 20px; /* Space between title and charts */
+    font-size: 1.8rem;
+    text-align: left;
+}
+
+/* Flex container for charts */
+.chart-wrapper {
+    display: flex;
+    justify-content: space-between; /* Align to the left */
+    gap: 20px; /* Space between chart containers */
+    flex-wrap: wrap; /* Wrap charts on smaller screens */
+    width: 100%; /* Ensures full width usage */
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: column; /* Ensure h3 & chart stack */
+    justify-content: center;
+    width: 35%; /* Adjust width for side-by-side layout */
+    min-width: 250px; /* Prevent shrinking too much */
+    height: 250px;
+    text-align: center;
+    background-color: #F4DEC9;
+    border: 2px solid #961A22;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
   
+
   .combined-data {
     margin-top: 20px;
     padding: 15px;
@@ -121,5 +168,6 @@ body {
     border-radius: 8px;
     background-color: #fbeee6;
     text-align: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   }
   

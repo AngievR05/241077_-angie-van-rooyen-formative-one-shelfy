@@ -116,17 +116,20 @@ const ComparisonPage = () => {
           
             <hr />
 
-        <section className="data-visualization">
-          <h2>Data Visualization</h2>
-          <div className="chart-container">
-            <h3>Ratings</h3>
-            <RatingsChart book1={book1} book2={book2} />
-          </div>
-          <div className="chart-container">
-            <h3>Book Formats Availability</h3>
-            <FormatsChart book1={book1} book2={book2} />
-          </div>
-        </section>
+            <section className="data-visualization">
+              <h2>Data Visualization</h2>
+              <div className="chart-wrapper">
+              <div className="chart-container">
+                <h3>Ratings</h3>
+                  <RatingsChart book1={book1} book2={book2} />
+               </div>
+              <div className="chart-container">
+                <h3>Book Formats Availability</h3>
+                <FormatsChart book1={book1} book2={book2} />
+              </div>
+              </div>
+            </section>
+
 
         <hr />
 
