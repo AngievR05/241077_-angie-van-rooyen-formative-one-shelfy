@@ -10,6 +10,7 @@ function App() {
     <Router basename="/AngievR05/241077_-angie-van-rooyen-formative-one-shelf">
       <Routes>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/comparison" element={<Comparison />} />
         <Route path="/timeline" element={<Timeline />} />
         {/* Optional: Handle unmatched routes */}

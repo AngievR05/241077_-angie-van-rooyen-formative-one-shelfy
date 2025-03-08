@@ -52,6 +52,7 @@ const ComparisonPage = () => {
         
         <section className="book-selection">
           <h2>Select Your Books</h2>
+          <button>Reset</button>
           {/* Book 1 Selection */}
           <div className="book-card">
             <h2>Select Book 1</h2>

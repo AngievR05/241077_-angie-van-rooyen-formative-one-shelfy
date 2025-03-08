@@ -90,6 +90,16 @@ body {
     justify-content: space-between;
     gap: 20px;
   }
+
+.book-selection button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #961A22;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
   
   .book-card {
     width: 45%;
