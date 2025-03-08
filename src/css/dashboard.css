@@ -50,6 +50,7 @@ body {
 .dashboard {
   display: flex;
   height: 100vh;
+  width: 100%;
 }
 
 .content {
@@ -58,6 +59,7 @@ body {
   background-color: var(--light-bg);
   /* width: calc(100% - 120px); */
   overflow-x: hidden;
+  width: 100%;
 }
 
 .header {
@@ -106,6 +108,9 @@ body {
 
 .main-content {
   padding: 20px;
+  margin-right: 0;
+  width: 100%;
+  overflow-y: auto;
 }
 
 
