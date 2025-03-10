@@ -15,8 +15,6 @@ body {
   font-family: Arial, sans-serif;
   background-color: #F8F7F3;
   color: var(--black);
-  margin: 0;
-  padding: 0;
 }
 
 .dashboard {
@@ -27,16 +25,18 @@ body {
 
 
 .main-content {
-  padding: 20px;
-  flex-grow: 1;  /* Let it grow and take the available space */
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Ensure it takes the remaining space */
 }
 
 .content {
-  flex-grow: 1;
-  padding-top: 10px;
-  background-color: var(--light-bg);
-  overflow-x: hidden;
+  flex-grow: 1; /* Ensure it takes the remaining space */
+  padding: 20px;
+  background-color: #f4f4f4;
+  overflow-y: auto;
+  height: 100vh;
+  box-sizing: border-box;
 }
 
 .header {

@@ -6,16 +6,17 @@ const ChartSection = ({ data, title, dataKey, color }) => {
     <section className="chart-section">
       <h2>{title}</h2>
       <div className="chart-section-text">
-      <ResponsiveContainer width="100%" height={300}>
-        <BarChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Bar dataKey={dataKey} fill={color} />
-        </BarChart>
-      </ResponsiveContainer>
-        </div>
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart data={data}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            {/* All bars will use the same color */}
+            <Bar dataKey={dataKey} fill={color} />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
     </section>
   );
 };
