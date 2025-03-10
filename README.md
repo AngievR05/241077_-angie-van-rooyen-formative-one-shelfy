@@ -18,6 +18,7 @@ Ensure you have the following installed:
 
 ### Installation
 1. Clone the repository:
+   https://github.com/AngievR05/241077_-angie-van-rooyen-formative-one-shelfy.git
 2. Install dependencies:
    npm install  
 3. Set up environment variables:
