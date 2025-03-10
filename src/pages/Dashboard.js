@@ -45,25 +45,30 @@ const Dashboard = () => {
 
           <hr />
 
-          {/* Genre Mood Board */}
-          <section className="data-shelf">
+          <div class="data-shelf">
             <h2>The Data Shelf</h2>
-            <div className="data-shelf-header">
+
+          <div class="data-content">
+            <div class="genre-mood-board">
               <h3>Genre Mood Board</h3>
               <p>Explore books by genre! Click on a category to discover top titles.</p>
               <GenreSelector selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre} />
             </div>
-          </section>
 
-          {/* Top-Rated Books */}
-          <section className="top-rated">
-            <h3>Top-Rated Books</h3>
-            <ol>
-              {filteredBooks.slice(0, 5).map((book) => (
-                <li key={book.id}>{book.title}</li>
-              ))}
-            </ol>
-          </section>
+            <div class="top-rated">
+              <h3>Top-Rated Books</h3>
+              <p>Discover the 5 highest-rated books!</p>
+              <ol>
+                {filteredBooks.slice(0, 5).map((book) => (
+                  <li key={book.id}>{book.title}</li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </div>
+
+
+
 
           <hr />
 
@@ -73,12 +78,14 @@ const Dashboard = () => {
           <hr />
 
           {/* Rating Chart */}
-          <ChartSection data={ratingData} title="The Rating Shelf" dataKey="rating" color="#E07A5F" />
+          <ChartSection data={ratingData} title="The Rating Shelf" dataKey="rating" color="var(--deep-orange)" />
+
 
           <hr />
 
           {/* Page Chart */}
-          <ChartSection data={pageData} title="The Page Shelf" dataKey="pages" color="#3D405B" />
+          <ChartSection data={pageData} title="The Page Shelf" dataKey="pages" color="var(--dark-maroon)" />
+
 
           <hr />
 

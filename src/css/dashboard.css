@@ -1,31 +1,3 @@
-/* .dashboard {
-  display: flex;
-  height: 100vh; 
-}
-
-.main-content {
-  margin-left: 120px; 
-  padding: 20px;
-  width: calc(100% - 120px); 
-  overflow-y: auto; 
-}
-
-.dashboard-welcome {
-  margin-top: 30px;
-}
-
-h2 {
-  font-size: 2rem;
-  color: #333;
-}
-
-p {
-  font-size: 1.2rem;
-  color: #666;
-} */
-
-/* src/css/dashboard.css */
-
 :root {
   --dark-red: #961A22;
   --primary-red: #BF2D1E;
@@ -53,13 +25,18 @@ body {
   width: 100%;
 }
 
+
+.main-content {
+  padding: 20px;
+  flex-grow: 1;  /* Let it grow and take the available space */
+  overflow-y: auto;
+}
+
 .content {
   flex-grow: 1;
   padding-top: 10px;
   background-color: var(--light-bg);
-  /* width: calc(100% - 120px); */
   overflow-x: hidden;
-  width: 100%;
 }
 
 .header {
@@ -106,38 +83,14 @@ body {
   fill: #961A22; /* Change icon color when search bar is focused */
 }
 
-.main-content {
-  padding: 20px;
-  margin-right: 0;
-  width: 100%;
-  overflow-y: auto;
-}
 
-
-.welcome-text, .total-books, .data-shelf-header, .top-rated, .top-books-list {
+.welcome-text, .total-books, .data-shelf-header, .top-rated, .top-books-list, .genre-mood-board {
   background-color: #F4DEC9;
   border: 2px solid #961A22;
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
 }
-
-/* .welcome-container {
-  display: flex;
-  justify-content: space-between;  
-  align-items: flex-start;  
-}
-
-.welcome-text {
-  width: 65%;  
-  height: 100%;
-}
-
-.total-books {
-  width: 25%; 
-  height: 120%;
-  text-align: center;
-} */
 
 .welcome-container {
   display: flex;
@@ -180,37 +133,51 @@ body {
 
 .data-shelf {
   display: flex;
-  flex-direction: column;
-  gap: 20px; /* Space between the sections */
+  flex-direction: column;  
+  gap: 20px;  
+  align-items: left;  
 }
 
-.data-shelf-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+h2 {
+  text-align: left;  
+  width: 100%;  
+}
+
+.data-shelf > .data-content {
+  display: flex;  
+  justify-content: space-between;  
+  width: 90%; 
+  align-items: left;
   gap: 20px;
-  background-color: #F4DEC9;
-  border: 2px solid #961A22;
-  padding: 20px;
-  border-radius: 10px;
+}
+
+.genre-mood-board, .top-rated {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;  /* Align content at the top */
+  text-align: center;
+}
+
+.genre-mood-board {
+  width: 90%;  /* Adjust width as needed */
 }
 
 .top-rated {
-  background-color: #F4DEC9;
-  border: 2px solid #961A22;
-  padding: 20px;
-  border-radius: 10px;
+  width: 40%;  /* Adjust width as needed */
 }
 
-.top-rated h3 {
+/* .top-rated h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
-}
+} */
 
 .top-rated ol {
   padding-left: 20px;
-  font-size: 1.2rem;
+  font-size: 15px;
 }
+
+
 
 .genre-buttons button {
   background-color: var(--primary-red);
