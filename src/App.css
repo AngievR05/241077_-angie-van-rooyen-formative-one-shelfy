@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.content {
+  position: relative;
+  z-index: 1; /* Make sure the content is above the particles */
+  padding: 20px;
+  text-align: center;
+}
