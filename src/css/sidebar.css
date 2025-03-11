@@ -3,11 +3,13 @@
   top: 0;
   width: 70px; /* Fixed width of the sidebar */
   background-color: #F8F7F3;
-  /* height: 100vh; */
+  height: 100vh; /* Ensure the sidebar takes the full height */
   margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Logo container inside the sidebar */
 .sidebar-logo-container {
   margin-bottom: 10px;
   display: flex;
@@ -15,11 +17,10 @@
   align-items: center;
   width: 100%;
   padding: 5px 0;
-  position: relative;
+  position: sticky; /* Keeps the logo container in place */
   top: 10px;
 }
 
-/* Logo styling */
 .sidebar-logo {
   width: 70px;
   height: 70px;
@@ -29,10 +30,9 @@
   /* margin-left: -15px; */
 }
 
-/* Sidebar itself */
 .sidebar {
   width: 70px;  /* Fixed width */
-  height: 77vh;
+  height: 100%; /* Ensure the sidebar takes the full height */
   background-color: #7a1319;
   position: sticky; /* Keeps sidebar in place */
   top: 0;
@@ -122,4 +122,3 @@
   filter: invert(1); 
   transform: scaleX(-1);
 }
-
