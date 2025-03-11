@@ -28,7 +28,6 @@ const Dashboard = () => {
     name: book.title,
     pages: book.pages,
   }));
-  
 
     // Array of 5 colors
     const colors = [

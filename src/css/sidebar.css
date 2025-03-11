@@ -3,7 +3,7 @@
   top: 0;
   width: 70px; /* Fixed width of the sidebar */
   background-color: #F8F7F3;
-  height: 100vh;
+  /* height: 100vh; */
   margin-left: 5px;
 }
 
@@ -24,6 +24,7 @@
   width: 70px;
   height: 70px;
   border-radius: 50%; 
+  position: relative;
   /* background-color: #fde6d4;  */
   /* margin-left: -15px; */
 }
@@ -122,30 +123,3 @@
   transform: scaleX(-1);
 }
 
-/* Container for the rest of the app */
-.app-container {
-  display: flex;
-  margin-left: 100px; 
-  height: 100vh;
-  overflow: hidden;
-}
-
-/* Content area */
-.content {
-  width: 100%;
-  overflow-y: auto; 
-  padding: 20px;
-  background-color: #f4f4f4; 
-}
-
-.main-content {
-  margin-left: 20px; 
-}
-
-.app-container {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-  width: 100%; /* Make sure it takes up the entire width of the viewport */
-  margin-left: 70px; /* The same width as the sidebar */
-}
