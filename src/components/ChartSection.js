@@ -1,7 +1,7 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from "recharts";
 
-const ChartSection = ({ data, title, dataKey, color }) => {
+const ChartSection = ({ data, title, dataKey }) => {
   return (
     <section className="chart-section">
       <h2>{title}</h2>
@@ -12,8 +12,12 @@ const ChartSection = ({ data, title, dataKey, color }) => {
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
-            {/* All bars will use the same color */}
-            <Bar dataKey={dataKey} fill={color} />
+            {/* Assign different colors manually */}
+            <Bar dataKey={dataKey} fill="#961A22" />
+            <Bar dataKey={dataKey} fill="#BF2D1E" />
+            <Bar dataKey={dataKey} fill="#D55023" />
+            <Bar dataKey={dataKey} fill="#E47A24" />
+            <Bar dataKey={dataKey} fill="#ECAF23" />
           </BarChart>
         </ResponsiveContainer>
       </div>

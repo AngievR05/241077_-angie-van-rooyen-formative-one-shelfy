@@ -15,19 +15,23 @@ body {
   font-family: Open Sans, sans-serif;
   background-color: #F8F7F3;
   color: var(--black);
+  margin: 0;
+  padding: 0;
 }
 
 .dashboard {
   display: flex;
+  height: 100vh;
 }
 
 .content {
   flex-grow: 1;
-  padding: 10px;
+  padding: 20px;
   background-color: var(--light-bg);
   width: calc(100% - 100px); /* Adjust content width */
   margin-left: 0;
-  overflow-x: hidden; /* Hide horizontal overflow */
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .header {
@@ -35,7 +39,6 @@ body {
   justify-content: space-between;
   align-items: center;
   color: black;
-  margin-left: 0;
 }
 
 .header h1 {
@@ -76,11 +79,12 @@ body {
 
 .main-content {
   flex-grow: 1;
-  padding: 10px;
-  background-color: var(--light-bg);
-  width: calc(100% - 140px); /* Adjust content width */
+  padding: 20px;
   margin-left: 0;
-  overflow-x: hidden; /* Hide horizontal overflow */
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .welcome-text,
@@ -220,11 +224,15 @@ hr {
   margin-top: 15px;
 }
 
+.recharts-bar-rectangle {
+  fill: inherit !important;
+}
+
+
 .footer {
   color: rgb(0, 0, 0);
   text-align: left;
-  padding-left: 0px;
-  margin-left: 0px;
+  margin-top: 2px;
   bottom: 0;
   justify-content: start;
 }

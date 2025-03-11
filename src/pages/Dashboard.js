@@ -29,11 +29,7 @@ const Dashboard = () => {
     pages: book.pages,
   }));
 
-    // Array of 5 colors
-    const colors = [
-      "var(--deep-orange)",
-
-    ];
+  const colors = ["var(--deep-orange)"];
 
   return (
     <div className="dashboard">
@@ -77,13 +73,13 @@ const Dashboard = () => {
           <hr />
 
           {/* Rating Chart */}
-      <ChartSection data={ratingData} title="The Rating Shelf" dataKey="rating" colors={colors} />
-      <hr />
-      
-      {/* Pages Chart */}
-      <ChartSection data={pageData} title="The Page Shelf" dataKey="pages" colors={colors} />
+          <ChartSection data={ratingData} title="The Rating Shelf" dataKey="rating" colors={colors} />
+          <hr />
 
-      <hr />
+          {/* Pages Chart */}
+          <ChartSection data={pageData} title="The Page Shelf" dataKey="pages" colors={colors} />
+
+          <hr />
 
           <Footer />
         </div>
