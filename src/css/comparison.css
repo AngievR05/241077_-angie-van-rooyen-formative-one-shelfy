@@ -144,18 +144,18 @@ body {
     margin-bottom: 10px;
   }
   
-  .book-details p {
-    display: flex;
-    align-items: center; /* Align items vertically */
-    gap: 15px;
-    margin-top: 10px;
+  .book-details {
+    display: flex; /* Makes the container a flexbox */
+    align-items: center; /* Aligns items vertically in the center */
+    gap: 20px; /* Adds space between the image and the text */
   }
 
   /* Book image styles */
 .book-image {
-  width: 100px; /* Adjust size as needed */
+  width: 90px; /* Adjust size as needed */
   height: auto;
   border-radius: 5px;
+  object-fit: cover;
 }
 
 /* Text details container */
