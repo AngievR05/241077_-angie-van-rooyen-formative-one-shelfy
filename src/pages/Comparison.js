@@ -25,6 +25,15 @@ const ComparisonPage = () => {
     book.title.toLowerCase().includes(searchTerm2.toLowerCase())
   );
 
+  // Reset book selection
+  const resetSelection = () => {
+    setBook1(null);
+    setBook2(null);
+    setSearchTerm1('');
+    setSearchTerm2('');
+  };
+  
+
   // Handle book selection for book 1
   const handleBook1Select = (book) => {
     setBook1(book);
@@ -50,71 +59,107 @@ const ComparisonPage = () => {
         <SearchBar />
       </header>
         
-        <section className="book-selection">
-          <h2>Select Your Books</h2>
-          <button>Reset</button>
-          {/* Book 1 Selection */}
-          <div className="book-card">
-            <h2>Select Book 1</h2>
-            <input
-              type="text"
-              placeholder="Search"
-              value={searchTerm1}
-              onChange={(e) => setSearchTerm1(e.target.value)}
-            />
-            <div className="book-list">
-              {filteredBooks1.map((book) => (
-                <div
-                  key={book.id}
-                  className="book-item"
-                  onClick={() => handleBook1Select(book)}
-                >
-                  <p>{book.title}</p>
-                  <p>by {book.author}</p>
-                </div>
-              ))}
-            </div>
-            {book1 && (
-              <div className="book-details">
-                <p>Title: {book1.title}</p>
-                <p>by {book1.author}</p>
-                <p>Pages: {book1.pages}</p>
-                <p>Rating: {book1.rating}</p>
-              </div>
-            )}
-          </div>
+      <section className="book-selection">
+  <div className="selection-header">
+    <h2>Select Your Books</h2>
+    <button onClick={resetSelection}>Reset</button>
+  </div>
 
-          {/* Book 2 Selection */}
-          <div className="book-card">
-            <h2>Select Book 2</h2>
-            <input
-              type="text"
-              placeholder="Search"
-              value={searchTerm2}
-              onChange={(e) => setSearchTerm2(e.target.value)}
-            />
-            <div className="book-list">
-              {filteredBooks2.map((book) => (
-                <div
-                  key={book.id}
-                  className="book-item"
-                  onClick={() => handleBook2Select(book)}
-                >
-                  <p>{book.title}</p>
-                  <p>by {book.author}</p>
-                </div>
-              ))}
-            </div>
-            {book2 && (
-              <div className="book-details">
-                <p>Title: {book2.title}</p>
-                <p>by {book2.author}</p>
-                <p>Pages: {book2.pages}</p>
-                <p>Rating: {book2.rating}</p>
-              </div>
-            )}
-          </div>
-        </section>
+  <div className="book-cards">
+    {/* Book 1 Selection */}
+<div className="book-card">
+  <h3>Select Book 1</h3>
+  <input
+  type="text"
+  placeholder="Search"
+  value={searchTerm1}
+  onChange={(e) => setSearchTerm1(e.target.value)}
+  onKeyDown={(e) => {
+    if (e.key === "Enter" && filteredBooks1.length > 0) {
+      handleBook1Select(filteredBooks1[0]); // Select first matching book
+    }
+  }}
+/>
+  
+  {/* ✅ Only show book list when search term exists and no book is selected */}
+  {!book1 && searchTerm1 && (
+    <div className="book-list">
+      {filteredBooks1.map((book) => (
+        <div
+          key={book.id}
+          className="book-item"
+          onClick={() => handleBook1Select(book)}
+        >
+          <p>{book.title}</p>
+          <p>by {book.author}</p>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {/* Show Book Details Only if a Book is Selected */}
+  {book1 && (
+    <div className="book-details">
+      <img src={book1.image} alt={book1.title} className="book-image" />
+      <div className="book-info">
+        <p className="book-title">{book1.title}</p>
+        <p className="book-author">by {book1.author}</p>
+        <p className="book-pages">Pages: {book1.pages}</p>
+        <p className="book-rating">Rating: {book1.rating}</p>
+      </div>
+    </div>
+  )}
+</div>
+
+
+{/* Book 2 Selection */}
+<div className="book-card">
+  <h3>Select Book 2</h3>
+  <input
+  type="text"
+  placeholder="Search"
+  value={searchTerm2}
+  onChange={(e) => setSearchTerm2(e.target.value)}
+  onKeyDown={(e) => {
+    if (e.key === "Enter" && filteredBooks2.length > 0) {
+      handleBook2Select(filteredBooks2[0]); // Select first matching book
+    }
+  }}
+/>
+  
+  {/* ✅ Only show book list when search term exists and no book is selected */}
+  {!book2 && searchTerm2 && (
+    <div className="book-list">
+      {filteredBooks2.map((book) => (
+        <div
+          key={book.id}
+          className="book-item"
+          onClick={() => handleBook2Select(book)}
+        >
+          <p>{book.title}</p>
+          <p>by {book.author}</p>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {/* Show Book Details Only if a Book is Selected */}
+  {book2 && (
+    <div className="book-details">
+      <img src={book2.image} alt={book2.title} className="book-image" />
+      <div className="book-info">
+        <p className="book-title">{book2.title}</p>
+        <p className="book-author">by {book2.author}</p>
+        <p className="book-pages">Pages: {book2.pages}</p>
+        <p className="book-rating">Rating: {book2.rating}</p>
+      </div>
+    </div>
+  )}
+</div>
+
+  </div>
+</section>
+
           
             <hr />
 
