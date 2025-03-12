@@ -1,42 +1,11 @@
-/* ======== Global Styles ======== */
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  body {
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-
-  .flex {
-    display: flex;
-  }
-  
-  .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-  }
-   */
-
-   :root {
-    --primary-bg: #f5ebe1;
-    --primary-dark: #8b1e12;
-    --primary-light: #f4a261;
-    --secondary-light: #e76f51;
-    --text-dark: #3d1c0d;
-    --text-light: #fff;
-    --border-radius: 12px;
-  }
-  
-  body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--primary-bg);
-    color: var(--text-dark);
-  }
+:root {
+  --primary-bg: #f5ebe1;
+  --primary-dark: #8b1e12;
+  --primary-light: #f4a261;
+  --secondary-light: #e76f51;
+  --text-dark: #3d1c0d;
+  --text-light: #fff;
+  --border-radius: 12px;
+}
   
   

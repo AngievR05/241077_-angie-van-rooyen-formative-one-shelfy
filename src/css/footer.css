@@ -1,0 +1,19 @@
+.footer {
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin-top: auto;
+    bottom: 0;
+    justify-content: start;
+    margin-left: 10px;
+}
+  
+.footer button {
+    background-color: #BF2D20;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}

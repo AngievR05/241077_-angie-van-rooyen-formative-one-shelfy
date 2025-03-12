@@ -1,11 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom"; // Import NavLink for active page styling
+import { NavLink } from "react-router-dom"; 
 import logo from "../assets/sidebar-icons/Logo 1.png";
 import homeIcon from "../assets/sidebar-icons/home-1-svgrepo-com.svg";
 import comparisonIcon from "../assets/sidebar-icons/code-laptop-svgrepo-com.svg";
 import timelineIcon from "../assets/sidebar-icons/bar-chart-4-svgrepo-com.svg";
 import backIcon from "../assets/sidebar-icons/logout-svgrepo-com.svg";
-import "../css/sidebar.css"; // Ensure you have this file
+import "../css/sidebar.css";
 
 const Sidebar = () => {
   return (
@@ -17,12 +17,11 @@ const Sidebar = () => {
       </div>
 
       <nav className="sidebar">
-        {/* Navigation Icons */}
         <ul className="sidebar-menu">
           <li>
             <NavLink
               to="/dashboard"
-              activeClassName="active" // Adds "active" class to the current page
+              activeClassName="active" 
             >
               <img src={homeIcon} alt="Home" className="sidebar-icon" />
             </NavLink>
@@ -45,10 +44,8 @@ const Sidebar = () => {
           </li>
         </ul>
 
-        {/* Divider Line */}
         <div className="sidebar-divider"></div>
 
-        {/* Logout Button */}
         <button className="sidebar-logout">
           <img src={backIcon} alt="Logout" />
         </button>

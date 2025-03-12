@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from "chart.js";
 
-// Register the necessary Chart.js components
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const RatingsChart = ({ book1, book2 }) => {
@@ -11,18 +10,18 @@ const RatingsChart = ({ book1, book2 }) => {
   useEffect(() => {
     if (book1 && book2) {
       setChartData({
-        labels: [book1.title, book2.title], // Use book titles as labels
+        labels: [book1.title, book2.title], 
         datasets: [
           {
             label: "Ratings",
-            data: [book1.rating, book2.rating], // Use ratings from the selected books
-            backgroundColor: ["#D55023", "#ECAF23"], // Different colors for each book // Border color
+            data: [book1.rating, book2.rating], 
+            backgroundColor: ["#D55023", "#ECAF23"], 
             borderWidth: 0,
           },
         ],
       });
     }
-  }, [book1, book2]); // Re-run the effect when book1 or book2 changes
+  }, [book1, book2]); 
 
   // If no books are selected, render a message instead of the chart
   return chartData ? (

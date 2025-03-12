@@ -1,11 +1,10 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'; // Correct import
-// import './footer.css'; // Optional: CSS for the footer
+import { NavLink } from 'react-router-dom'; 
+import '../css/footer.css'; 
 
 const Footer = () => {
   return (
     <footer className="footer">
-      {/* Ensure to use NavLink for navigation */}
       <NavLink to="/" className="footer-link">
         <button>Landing Page</button>
       </NavLink>

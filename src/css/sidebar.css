@@ -1,9 +1,9 @@
 .sidebar-container {
   position: sticky;
   top: 0;
-  width: 70px; /* Fixed width of the sidebar */
+  width: 70px; 
   background-color: #F8F7F3;
-  height: 100vh; /* Ensure the sidebar takes the full height */
+  height: 100vh; 
   margin-left: 5px;
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@
   align-items: center;
   width: 100%;
   padding: 5px 0;
-  position: sticky; /* Keeps the logo container in place */
+  position: sticky; 
   top: 10px;
 }
 
@@ -31,36 +31,33 @@
 }
 
 .sidebar {
-  width: 70px;  /* Fixed width */
-  height: 100%; /* Ensure the sidebar takes the full height */
+  width: 70px; 
+  height: 100%; 
   background-color: #7a1319;
-  position: sticky; /* Keeps sidebar in place */
+  position: sticky; 
   top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 64px;
-  margin-left: 0; /* Remove any margin left */
+  margin-left: 0; 
   padding: 20px 0;
   transition: width 0.3s ease;
 }
 
-/* Menu items */
 .sidebar-menu {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 30px; /* Spacing between menu items */
+  gap: 30px;
 }
 
-/* Sidebar menu item styling */
 .sidebar-menu li {
   margin: 20px 0;
 }
 
-/* Sidebar menu link styling */
 .sidebar-menu a {
   display: flex;
   justify-content: center;
@@ -72,38 +69,32 @@
   transition: background-color 0.3s ease;
 }
 
-/* Hover effect for sidebar menu links */
 .sidebar-menu a:hover {
   background-color: #f6b73c; 
 }
 
-/* Icon in the sidebar */
 .sidebar-menu img {
   width: 30px;
   height: 30px;
   filter: invert(1); 
 }
 
-/* Active menu item styling */
 .sidebar-menu .active {
   background-color: #e24c2d; 
 }
 
-/* Active item icon */
 .sidebar-menu .active img {
   filter: invert(1);
 }
 
-/* Divider between sections */
 .sidebar-divider {
   width: 42px;
   height: 2px;
   background-color: white;
-  margin-bottom: 20px; /* Ensures 20px gap below the divider */
-  margin-top: auto; /* Pushes the divider to the bottom */
+  margin-bottom: 20px; 
+  margin-top: auto;
 }
 
-/* Logout button styling */
 .sidebar-logout {
   background: none;
   border: none;
@@ -115,7 +106,6 @@
   flex-direction: column;
 }
 
-/* Logout icon styling */
 .sidebar-logout img {
   width: 39px;
   height: 30px;

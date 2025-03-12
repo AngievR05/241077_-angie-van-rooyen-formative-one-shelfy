@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../css/comparison.css";
 import RatingsChart from "../components/RatingsChart";
-import PricePieChart from "../components/PriceChart"; // Import the new PricePieChart component
+import PricePieChart from "../components/PriceChart";
 import CombinedDataChart from "../components/CombinedDataChart";
 import Sidebar from "../components/Sidebar";
 import SearchBar from "../components/SearchBar";
@@ -11,12 +11,11 @@ import Footer from "../components/Footer";
 import { books } from "../assets/data/books";
 
 const ComparisonPage = () => {
-  const [book1, setBook1] = useState(null); // Book 1 selection
-  const [book2, setBook2] = useState(null); // Book 2 selection
-  const [searchTerm1, setSearchTerm1] = useState(""); // Search term for book 1
-  const [searchTerm2, setSearchTerm2] = useState(""); // Search term for book 2
+  const [book1, setBook1] = useState(null); 
+  const [book2, setBook2] = useState(null); 
+  const [searchTerm1, setSearchTerm1] = useState(""); 
+  const [searchTerm2, setSearchTerm2] = useState(""); 
 
-  // Filter books based on search term
   const filteredBooks1 = books.filter((book) =>
     book.title.toLowerCase().includes(searchTerm1.toLowerCase())
   );
@@ -33,35 +32,32 @@ const ComparisonPage = () => {
     setSearchTerm2('');
   };
 
-  // Handle book selection for book 1
   const handleBook1Select = (book) => {
     setBook1(book);
-    setSearchTerm1(book.title); // Auto-fill search with selected book title
+    setSearchTerm1(book.title); e
   };
 
   // Handle book selection for book 2
   const handleBook2Select = (book) => {
     setBook2(book);
-    setSearchTerm2(book.title); // Auto-fill search with selected book title
+    setSearchTerm2(book.title); 
   };
 
   return (
     <div className="dashboard">
-      {/* Sidebar component */}
       <Sidebar />
       
       <div className="main-content">
         <header className="header">
           <h1>Book Comparison</h1>
           
-          {/* SearchBar component */}
           <SearchBar />
         </header>
         
         <section className="book-selection">
           <div className="selection-header">
             <h2>Select Your Books</h2>
-            <button onClick={resetSelection}>Reset</button>
+            <button onClick={resetSelection}>Reset Books</button>
           </div>
 
           <div className="book-cards">
@@ -75,12 +71,11 @@ const ComparisonPage = () => {
                 onChange={(e) => setSearchTerm1(e.target.value)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && filteredBooks1.length > 0) {
-                    handleBook1Select(filteredBooks1[0]); // Select first matching book
+                    handleBook1Select(filteredBooks1[0]); 
                   }
                 }}
               />
               
-              {/* ✅ Only show book list when search term exists and no book is selected */}
               {!book1 && searchTerm1 && (
                 <div className="book-list">
                   {filteredBooks1.map((book) => (
@@ -120,12 +115,11 @@ const ComparisonPage = () => {
                 onChange={(e) => setSearchTerm2(e.target.value)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && filteredBooks2.length > 0) {
-                    handleBook2Select(filteredBooks2[0]); // Select first matching book
+                    handleBook2Select(filteredBooks2[0]); 
                   }
                 }}
               />
               
-              {/* ✅ Only show book list when search term exists and no book is selected */}
               {!book2 && searchTerm2 && (
                 <div className="book-list">
                   {filteredBooks2.map((book) => (
@@ -171,7 +165,7 @@ const ComparisonPage = () => {
 
               {/* Pie Chart for Price Distribution */}
               <div className="chart-container">
-                {/* <h3>Price Distribution</h3> */}
+                <h3>Price Distribution</h3>
                 <PricePieChart books={[book1, book2]} />
               </div>
             </div>
@@ -193,7 +187,6 @@ const ComparisonPage = () => {
 
         <hr />
 
-        {/* Footer */}
         <Footer />
       </div>
     </div>

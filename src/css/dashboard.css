@@ -28,7 +28,7 @@ body {
   flex-grow: 1;
   padding: 10px;
   background-color: var(--light-bg);
-  width: calc(100% - 100px); /* Adjust content width */
+  width: calc(100% - 25px); /* Adjust content width */
   margin-left: 0;
   overflow-x: hidden;
   overflow-y: auto;
@@ -86,7 +86,7 @@ body {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  width: calc(100% - 25px); 
+  width: calc(100% - 10px);
   margin-left: 10px;
 }
 
@@ -215,44 +215,23 @@ h2 {
 hr {
   border-top: 3px solid #6D0000;
   height: 0; 
-  border-radius: 10px; /* Round the edges */
-  width: 100%; /* Ensures it stretches across */
-  display: block !important; /* Ensures it is rendered */
-  visibility: visible !important; /* Ensures it's not hidden */
+  border-radius: 10px; 
+  width: 100%; 
+  display: block !important; 
+  visibility: visible !important; 
   flex-basis: 100%;
   margin-left: 0;
 }
 
 .chart-section-text {
-  margin-top: 20px;
   background-color: var(--beige);
   padding: 20px;
   border-radius: 10px;
   border: 2px solid #961A22;
   margin-top: 15px;
+  margin-bottom: 20px;
 }
 
 .recharts-bar-rectangle {
   fill: inherit !important;
-}
-
-
-.footer {
-  color: rgb(0, 0, 0);
-  text-align: left;
-  margin-top: auto;
-  bottom: 0;
-  justify-content: start;
-  margin-left: 10px;
-}
-
-.footer button {
-  background-color: #BF2D20;
-  color: white;
-  padding: 12px 24px;
-  border: none;
-  margin: 5px;
-  cursor: pointer;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
