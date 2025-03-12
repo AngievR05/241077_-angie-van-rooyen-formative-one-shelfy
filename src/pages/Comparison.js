@@ -171,7 +171,7 @@ const ComparisonPage = () => {
 
               {/* Pie Chart for Price Distribution */}
               <div className="chart-container">
-                <h3>Price Distribution</h3>
+                {/* <h3>Price Distribution</h3> */}
                 <PricePieChart books={[book1, book2]} />
               </div>
             </div>

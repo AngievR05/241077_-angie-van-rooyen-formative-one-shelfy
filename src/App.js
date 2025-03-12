@@ -3,11 +3,9 @@ import Dashboard from './pages/Dashboard';
 import Comparison from './pages/Comparison';
 import Timeline from './pages/Timeline';
 import NotFound from './pages/NotFound';
-import Background from './components/Background';
 
 const App = () => {
   return (
-    <Background />, 
     
     <Router basename="/AngievR05/241077_-angie-van-rooyen-formative-one-shelf">
       <Routes>

@@ -81,8 +81,9 @@ const Dashboard = () => {
 
           <hr />
 
-          <Footer />
+          
         </div>
+        <Footer />
       </div>
     </div>
   );
