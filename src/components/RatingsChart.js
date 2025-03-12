@@ -16,9 +16,8 @@ const RatingsChart = ({ book1, book2 }) => {
           {
             label: "Ratings",
             data: [book1.rating, book2.rating], // Use ratings from the selected books
-            backgroundColor: ["#FF5733", "#33B5FF"], // Different colors for each book
-            borderColor: ["#800000", "#0055FF"], // Border color
-            borderWidth: 1,
+            backgroundColor: ["#D55023", "#ECAF23"], // Different colors for each book // Border color
+            borderWidth: 0,
           },
         ],
       });

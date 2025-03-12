@@ -201,7 +201,7 @@ body {
     flex-direction: column; /* Title on top, charts below */
     align-items: flex-start; /* Keep left alignment */
     margin-top: 20px;
-    width: 100%;
+    width: 95%;
     margin-left: 20px;
 }
 
@@ -214,18 +214,18 @@ body {
 /* Flex container for charts */
 .chart-wrapper {
     display: flex;
-    justify-content: space-between; /* Align to the left */
-    gap: 20px; /* Space between chart containers */
+    justify-content: flex-start; /* Align to the left */
+    gap: 225px; /* Space between chart containers */
     flex-wrap: wrap; /* Wrap charts on smaller screens */
     width: 100%; /* Ensures full width usage */
 }
 
 .chart-container {
     display: flex;
-    flex-direction: column; /* Ensure h3 & chart stack */
+    flex-direction: column; 
     justify-content: center;
-    width: 35%; /* Adjust width for side-by-side layout */
-    min-width: 250px; /* Prevent shrinking too much */
+    width: 35%; 
+    min-width: 250px; 
     height: 250px;
     text-align: center;
     background-color: #F4DEC9;
@@ -236,7 +236,13 @@ body {
     margin-left: 20px;
 }
 
-  
+.pie-chart-container {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
 
   .combined-data {
     margin-top: 20px;
