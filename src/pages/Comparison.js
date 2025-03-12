@@ -164,26 +164,34 @@ const ComparisonPage = () => {
             <hr />
 
             <section className="data-visualization">
-              <h2>Data Visualisation</h2>
-              <div className="chart-wrapper">
-              <div className="chart-container">
-                <h3>Ratings</h3>
-                  <RatingsChart book1={book1} book2={book2} />
-               </div>
-              <div className="chart-container">
-                <h3>Book Formats Availability</h3>
-                <FormatsChart book1={book1} book2={book2} />
-              </div>
-              </div>
-            </section>
+  <h2>Data Visualization</h2>
 
+  {book1 && book2 ? (
+    <div className="chart-wrapper">
+      <div className="chart-container">
+        <h3>Ratings</h3>
+        <RatingsChart book1={book1} book2={book2} />
+      </div>
+      <div className="chart-container">
+        <h3>Book Formats Availability</h3>
+        <FormatsChart book1={book1} book2={book2} />
+      </div>
+    </div>
+  ) : (
+    <p>Please select two books to compare data.</p>
+  )}
+</section>
 
-        <hr />
+<hr />
 
-        <section className="combined-data">
-          <h3>All Data Combined</h3>
-          <CombinedDataChart book1={book1} book2={book2} />
-        </section>
+<section className="combined-data">
+  <h3>All Data Combined</h3>
+  {book1 && book2 ? (
+    <CombinedDataChart book1={book1} book2={book2} />
+  ) : (
+    <p>Select two books to see combined data.</p>
+  )}
+</section>
 
           <hr />
 
