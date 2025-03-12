@@ -13,11 +13,7 @@ const ChartSection = ({ data, title, dataKey }) => {
             <YAxis />
             <Tooltip />
             {/* Assign different colors manually */}
-            <Bar dataKey={dataKey} fill="#961A22" />
-            <Bar dataKey={dataKey} fill="#BF2D1E" />
-            <Bar dataKey={dataKey} fill="#D55023" />
             <Bar dataKey={dataKey} fill="#E47A24" />
-            <Bar dataKey={dataKey} fill="#ECAF23" />
           </BarChart>
         </ResponsiveContainer>
       </div>
