@@ -1,3 +1,5 @@
+// import placeholderImage from "./images/placeholder.jpg"; 
+
 export const books = [
   // Fiction Books
   { id: 1, title: "Fiction Book 1", author: "Author A", genre: "Fiction", rating: 4.5, price: 20, pages: 320, image: "/images/fiction1.jpg", description: "A gripping fiction story." },
