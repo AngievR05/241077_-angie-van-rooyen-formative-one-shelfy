@@ -42,6 +42,7 @@ body {
     border-radius: 20px;
     width: 100%; /* Ensure it takes up full width */
     background-color: #F4DEC9;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   }
   
   .search-bar:focus {
@@ -79,6 +80,7 @@ body {
     visibility: visible !important; /* Ensures it's not hidden */
     flex-basis: 100%;
     margin-left: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   }
 
 /* .comparison-container {
@@ -109,6 +111,7 @@ body {
     color: white;
     font-size: 1rem;
     cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   }
   
   .book-cards {
@@ -124,8 +127,9 @@ body {
     padding: 15px;
     border: 2px solid #961A22;
     border-radius: 8px;
-    background-color: #fbeee6;
+    background-color: #F4DEC9;
     min-height: 200px; /* Prevent collapsing */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   }
 
   .book-card h3 {
@@ -142,6 +146,7 @@ body {
     border-radius: 10px;
     outline: none; /* Remove default focus outline */
     margin-bottom: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   }
   
   .book-details {
@@ -156,6 +161,7 @@ body {
   height: auto;
   border-radius: 5px;
   object-fit: cover;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Text details container */
@@ -200,7 +206,7 @@ body {
     display: flex;
     flex-direction: column; /* Title on top, charts below */
     align-items: flex-start; /* Keep left alignment */
-    margin-top: 20px;
+    margin-top: -20px;
     width: 95%;
     margin-left: 20px;
 }
@@ -249,7 +255,7 @@ body {
     padding: 15px;
     border: 2px solid #800000;
     border-radius: 8px;
-    background-color: #fbeee6;
+    background-color: #F4DEC9;
     text-align: center;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     margin-left: 20px;
