@@ -16,7 +16,6 @@ body {
     background-color: var(--light-bg);
     width: calc(100% - 140px);
     margin-left: 0;
-    overflow-x: hidden; /* Hide horizontal overflow */
   }
 
   .header {
@@ -68,16 +67,18 @@ body {
   padding: 10px;
   background-color: var(--light-bg);
   width: calc(100% - 140px);
-  margin-left: 0;
-  overflow-x: hidden; 
+  margin-left: 0; 
   }
  
   hr {
-    border: none; /* Remove default border */
-    height: 3px; /* Set the stroke thickness */
-    background-color: #6D0000; /* Set the color */
+    border-top: 3px solid #6D0000;
+    height: 0; 
     border-radius: 10px; /* Round the edges */
     margin: 20px 0; /* Add vertical margin to space it out */
+    width: 100%; /* Ensures it stretches across */
+    display: block !important; /* Ensures it is rendered */
+    visibility: visible !important; /* Ensures it's not hidden */
+    flex-basis: 100%;
   }
 
 /* .comparison-container {
