@@ -34,7 +34,7 @@ const ComparisonPage = () => {
 
   const handleBook1Select = (book) => {
     setBook1(book);
-    setSearchTerm1(book.title); e
+    setSearchTerm1(book.title); 
   };
 
   // Handle book selection for book 2

@@ -196,7 +196,7 @@ hr {
 .chart-wrapper {
   display: flex;
   justify-content: flex-start;
-  gap: 225px; 
+  gap: 32vh; 
   flex-wrap: wrap; 
   width: 100%; 
 }
