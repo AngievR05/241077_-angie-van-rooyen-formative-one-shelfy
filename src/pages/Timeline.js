@@ -25,9 +25,12 @@ const Timeline = () => {
   // Extract book titles for X-axis labels
   const bookLabels = filteredBooks.map((book) => book.title);
 
-  // Extract ratings and publication dates
+  // Extract ratings and publication years
   const bookRatings = filteredBooks.map((book) => book.rating * 20); // Scale rating (5 stars → 100)
-  const bookPublicationDates = filteredBooks.map((book) => book.publicationYear || (2020 + book.id) % 2025); // Ensure publicationYear exists
+  const bookPublicationDates = filteredBooks.map((book) => book.publicationYear || 2000); // Use actual year or default
+
+  // Ensure `bookPublicationDates` data is valid
+  console.log("Publication Years:", bookPublicationDates); // Debugging to check if values exist
 
   // Determine the data to display based on the dropdown selection
   let datasets = [];
@@ -35,9 +38,9 @@ const Timeline = () => {
     datasets.push({
       label: "Ratings (Scaled to 100)",
       data: bookRatings,
-      borderColor: "#652E98",
-      backgroundColor: "rgba(101, 46, 152, 0.2)",
-      pointBackgroundColor: "#18B3A5",
+      borderColor: "#8b1e12",
+      backgroundColor: "#8b1e12",
+      pointBackgroundColor: "#e76f51",
       pointBorderColor: "#fff",
       borderWidth: 2,
       tension: 0.3,
@@ -48,9 +51,9 @@ const Timeline = () => {
     datasets.push({
       label: "Publication Year",
       data: bookPublicationDates,
-      borderColor: "#2476BC",
-      backgroundColor: "rgba(36, 118, 188, 0.2)",
-      pointBackgroundColor: "#A9DBD5",
+      borderColor: "#8b1e12",
+      backgroundColor: "#8b1e12",
+      pointBackgroundColor: "#e76f51",
       pointBorderColor: "#fff",
       borderWidth: 2,
       tension: 0.3,
@@ -63,7 +66,10 @@ const Timeline = () => {
     responsive: true,
     maintainAspectRatio: false,
     plugins: { legend: { display: true, position: "top" } },
-    scales: { x: { title: { display: true, text: "Books" } }, y: { title: { display: true, text: "Value" }, min: 0, max: 100 } },
+    scales: { 
+      x: { title: { display: true, text: "Books" } }, 
+      y: { title: { display: true, text: "Value" }, beginAtZero: false } 
+    },
   };
 
   return (
@@ -97,8 +103,8 @@ const Timeline = () => {
         <div className="chart-container">
           <Line data={chartData} options={chartOptions} />
         </div>
-
-        <hr />
+            
+            {/* <hr /> */}
 
         {/* Footer */}
         <Footer />

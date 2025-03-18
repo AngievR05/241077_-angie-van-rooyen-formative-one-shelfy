@@ -1,71 +1,62 @@
-/* .timeline {
+.timeline {
     display: flex;
-    flex-direction: row;
+    height: 100vh;
   }
   
   .main-content {
     flex-grow: 1;
-    padding: 20px;
-  }
-  
-  h2 {
-    color: #652E98;
-    text-align: center;
-  }
-  
-  .vertical-timeline-element-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-   */
-   .timeline {
+    padding: 5px;
     display: flex;
-    flex-direction: row;
-    height: 100vh; /* Full height */
-  }
-  
-  .main-content {
-    flex-grow: 1;
-    padding: 20px;
-    text-align: center;
+    flex-direction: column;
   }
   
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 0;
   }
   
   .filters {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    margin-bottom: 5px;
   }
   
   .dropdowns {
     display: flex;
-    gap: 10px;
+    gap: 15px;
   }
   
   .dropdown {
     padding: 8px;
-    font-size: 1rem;
-    border: 2px solid #652E98;
-    border-radius: 5px;
-    background: white;
-    color: #652E98;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #BF2D20;
+    background-color: #BF2D20;
+    color: white;
     cursor: pointer;
   }
   
   .chart-container {
-    width: 80%;
-    height: 90vh; /* Takes up most of the page */
-    margin: auto;
-    background: #fcece0;
-    padding: 20px;
-    border-radius: 10px;
-    border: 2px solid #652E98;
+    width: 97%; /* Full screen width */
+    height: 90vh; /* 90% of the viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+
+  hr {
+    border-top: 3px solid #6D0000;
+    height: 0; 
+    border-radius: 10px; 
+    width: 100%; 
+    display: block !important; 
+    visibility: visible !important; 
+    flex-basis: 100%;
+    margin-left: 0;
   }
   

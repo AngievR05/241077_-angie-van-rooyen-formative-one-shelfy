@@ -79,7 +79,7 @@ const Dashboard = () => {
           {/* Pages Chart */}
           <ChartSection data={pageData} title="The Page Shelf" dataKey="pages" colors={colors} />
 
-          <hr />
+          {/* <hr /> */}
 
           
         </div>

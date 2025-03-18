@@ -185,7 +185,7 @@ const ComparisonPage = () => {
           )}
         </section>
 
-        <hr />
+        {/* <hr /> */}
 
         <Footer />
       </div>

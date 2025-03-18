@@ -5,6 +5,7 @@ import '../css/footer.css';
 const Footer = () => {
   return (
     <footer className="footer">
+      <hr />
       <NavLink to="/" className="footer-link">
         <button>Landing Page</button>
       </NavLink>
