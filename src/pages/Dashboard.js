@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import books from "../assets/data/books";
+import React, { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import SearchBar from "../components/SearchBar";
 import GenreSelector from "../components/GenreSelector";
@@ -7,18 +6,46 @@ import WelcomeSection from "../components/WelcomeSection";
 import BookList from "../components/BookList";
 import ChartSection from "../components/ChartSection";
 import Footer from "../components/Footer";
-import '../css/dashboard.css';
+import "../css/dashboard.css";
 
 const Dashboard = () => {
+  const [books, setBooks] = useState([]); // Store books from API
   const [selectedGenre, setSelectedGenre] = useState("Fiction");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredBooks = books.filter(
-    (book) =>
-      book.genre === selectedGenre &&
-      book.title.toLowerCase().includes(searchQuery.toLowerCase())
+  // Fetch books from Google Books API
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        const response = await fetch(
+          `https://www.googleapis.com/books/v1/volumes?q=subject:${selectedGenre}&maxResults=20`
+        );
+        const data = await response.json();
+        if (data.items) {
+          // Transform API response to match our book structure
+          const formattedBooks = data.items.map((item) => ({
+            id: item.id,
+            title: item.volumeInfo.title || "Unknown Title",
+            genre: selectedGenre, // Since we query by genre
+            rating: item.volumeInfo.averageRating || 0,
+            pages: item.volumeInfo.pageCount || 0,
+          }));
+          setBooks(formattedBooks);
+        }
+      } catch (error) {
+        console.error("Error fetching books:", error);
+      }
+    };
+
+    fetchBooks();
+  }, [selectedGenre]); // Refetch when genre changes
+
+  // Filter books based on search query
+  const filteredBooks = books.filter((book) =>
+    book.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  // Data for charts
   const ratingData = filteredBooks.map((book) => ({
     name: book.title,
     rating: book.rating,
@@ -58,9 +85,12 @@ const Dashboard = () => {
                 <h3>Top-Rated Books</h3>
                 <p>Discover the 5 highest-rated books!</p>
                 <ol>
-                  {filteredBooks.slice(0, 5).map((book) => (
-                    <li key={book.id}>{book.title}</li>
-                  ))}
+                  {filteredBooks
+                    .sort((a, b) => b.rating - a.rating)
+                    .slice(0, 5)
+                    .map((book) => (
+                      <li key={book.id}>{book.title}</li>
+                    ))}
                 </ol>
               </div>
             </div>
@@ -78,10 +108,6 @@ const Dashboard = () => {
 
           {/* Pages Chart */}
           <ChartSection data={pageData} title="The Page Shelf" dataKey="pages" colors={colors} />
-
-          {/* <hr /> */}
-
-          
         </div>
         <Footer />
       </div>
