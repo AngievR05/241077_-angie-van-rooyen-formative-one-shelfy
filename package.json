@@ -29,6 +29,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.30.0",
     "react-scripts": "^5.0.1",
+    "react-vertical-timeline-component": "^3.5.3",
     "recharts": "^2.15.1",
     "venn.js": "^0.2.20",
     "web-vitals": "^4.2.4"
