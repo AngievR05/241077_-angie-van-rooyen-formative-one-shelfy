@@ -1,8 +1,8 @@
 .dashboard-card {
-  width: 30px; 
+  width: 40px; 
   height: 140px;
   perspective: 1000px; /* 3D Effect */
-  margin-right: 20px;
+  margin-right: 10px;
   transition: all 0.3s ease-in-out;
   transform-origin: center bottom;
 }
@@ -24,7 +24,7 @@
   
 /* Front Side - Book Spine */
 .card-front {
-  width: 35px; 
+  width: 55px; 
   background-color: #E47A24;
   display: flex;
   justify-content: center;

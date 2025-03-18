@@ -12,6 +12,7 @@ const Dashboard = () => {
   const [books, setBooks] = useState([]); // Store books from API
   const [selectedGenre, setSelectedGenre] = useState("Fiction");
   const [searchQuery, setSearchQuery] = useState("");
+  const [totalBooks, setTotalBooks] = useState(0); // Store total book count
 
   // Fetch books from Google Books API
   useEffect(() => {
@@ -21,6 +22,7 @@ const Dashboard = () => {
           `https://www.googleapis.com/books/v1/volumes?q=subject:${selectedGenre}&maxResults=20`
         );
         const data = await response.json();
+
         if (data.items) {
           // Transform API response to match our book structure
           const formattedBooks = data.items.map((item) => ({
@@ -29,8 +31,11 @@ const Dashboard = () => {
             genre: selectedGenre, // Since we query by genre
             rating: item.volumeInfo.averageRating || 0,
             pages: item.volumeInfo.pageCount || 0,
+            image: item.volumeInfo.imageLinks?.thumbnail || "https://via.placeholder.com/128x190", // Default if no image
           }));
+
           setBooks(formattedBooks);
+          setTotalBooks(data.totalItems || formattedBooks.length); // Update total books
         }
       } catch (error) {
         console.error("Error fetching books:", error);
@@ -41,9 +46,11 @@ const Dashboard = () => {
   }, [selectedGenre]); // Refetch when genre changes
 
   // Filter books based on search query
-  const filteredBooks = books.filter((book) =>
-    book.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredBooks = books
+    .filter((book) =>
+      book.title.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+    .sort((a, b) => b.rating - a.rating); // Sort after filtering
 
   // Data for charts
   const ratingData = filteredBooks.map((book) => ({
@@ -68,7 +75,8 @@ const Dashboard = () => {
         </header>
 
         <div className="main-content">
-          <WelcomeSection totalBooks={books.length} />
+          {/* Updated to use totalBooks from API */}
+          <WelcomeSection totalBooks={totalBooks} />
 
           <hr />
 
@@ -86,7 +94,6 @@ const Dashboard = () => {
                 <p>Discover the 5 highest-rated books!</p>
                 <ol>
                   {filteredBooks
-                    .sort((a, b) => b.rating - a.rating)
                     .slice(0, 5)
                     .map((book) => (
                       <li key={book.id}>{book.title}</li>
@@ -98,6 +105,7 @@ const Dashboard = () => {
 
           <hr />
 
+          {/* BookList now includes images */}
           <BookList books={filteredBooks} title={`Top 15 Books of ${selectedGenre}`} />
 
           <hr />
