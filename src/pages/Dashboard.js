@@ -19,7 +19,7 @@ const Dashboard = () => {
     const fetchBooks = async () => {
       try {
         const response = await fetch(
-          `https://www.googleapis.com/books/v1/volumes?q=subject:${selectedGenre}&maxResults=20`
+          `https://www.googleapis.com/books/v1/volumes?q=subject:${selectedGenre}&maxResults=40`
         );
         const data = await response.json();
 
@@ -34,13 +34,8 @@ const Dashboard = () => {
             image: item.volumeInfo.imageLinks?.thumbnail || "https://via.placeholder.com/128x190", // Default if no image
           }));
 
-          // Filter books that have rating, page count, and image
-          const filteredBooks = formattedBooks.filter(
-            (book) => book.rating > 0 && book.pages > 0 && book.image !== "https://via.placeholder.com/128x190"
-          );
-
-          setBooks(filteredBooks);
-          setTotalBooks(data.totalItems || filteredBooks.length); // Update total books
+          setBooks(formattedBooks);
+          setTotalBooks(data.totalItems || formattedBooks.length); // Update total books
         }
       } catch (error) {
         console.error("Error fetching books:", error);
@@ -50,20 +45,37 @@ const Dashboard = () => {
     fetchBooks();
   }, [selectedGenre]); // Refetch when genre changes
 
-  // Filter books based on search query
+  // Filter books to only include those with a rating, page count, and image
   const filteredBooks = books
+    .filter(
+      (book) =>
+        book.rating > 0 && // Ensure the book has a rating
+        book.pages > 0 && // Ensure the book has a page count
+        book.image !== "https://via.placeholder.com/128x190" // Ensure the book has an image
+    )
     .filter((book) =>
       book.title.toLowerCase().includes(searchQuery.toLowerCase())
-    )
-    .sort((a, b) => b.rating - a.rating); // Sort after filtering
+    );
+
+  // If fewer than 15 books, fill up with books that may not meet all criteria (fallback)
+  const booksToShow = [
+    ...filteredBooks.slice(0, 15),
+    ...books
+      .filter(
+        (book) =>
+          book.title.toLowerCase().includes(searchQuery.toLowerCase()) &&
+          (book.rating === 0 || book.pages === 0 || book.image === "https://via.placeholder.com/128x190")
+      )
+      .slice(0, 15 - filteredBooks.length),
+  ];
 
   // Data for charts
-  const ratingData = filteredBooks.map((book) => ({
+  const ratingData = booksToShow.map((book) => ({
     name: book.title,
     rating: book.rating,
   }));
 
-  const pageData = filteredBooks.map((book) => ({
+  const pageData = booksToShow.map((book) => ({
     name: book.title,
     pages: book.pages,
   }));
@@ -99,6 +111,7 @@ const Dashboard = () => {
                 <p>Discover the 5 highest-rated books!</p>
                 <ol>
                   {filteredBooks
+                    .sort((a, b) => b.rating - a.rating)
                     .slice(0, 5)
                     .map((book) => (
                       <li key={book.id}>{book.title}</li>
@@ -111,7 +124,7 @@ const Dashboard = () => {
           <hr />
 
           {/* BookList now includes images */}
-          <BookList books={filteredBooks} title={`Top 15 Books of ${selectedGenre}`} />
+          <BookList books={booksToShow} title={`Top 15 Books of ${selectedGenre}`} />
 
           <hr />
 
