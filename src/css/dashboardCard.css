@@ -1,6 +1,6 @@
 .dashboard-card {
-  width: 40px; 
-  height: 140px;
+  width: 43px; 
+  height: 180px;
   perspective: 1000px; /* 3D Effect */
   margin-right: 10px;
   transition: all 0.3s ease-in-out;
@@ -24,17 +24,19 @@
   
 /* Front Side - Book Spine */
 .card-front {
-  width: 55px; 
+  width: 55px;
   background-color: #E47A24;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  writing-mode: vertical-rl; 
-  transform: rotate(180deg); 
-  font-size: 10px; 
-  border-radius: 10px; 
+  justify-content: flex-start;  /* Aligns text to the start (left) */
+  align-items: flex-start;  /* Aligns text to the top */
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 12px;
+  border-radius: 10px;
   color: #FFFAE8;
+  padding: 6px;  /* Optional: Add padding if necessary to avoid text clipping */
 }
+
   
 /* Back Side - Expanded View */
 .card-back {
