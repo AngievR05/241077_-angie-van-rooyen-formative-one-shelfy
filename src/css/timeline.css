@@ -1,4 +1,4 @@
-.timeline {
+/* .timeline {
     display: flex;
     flex-direction: row;
   }
@@ -16,5 +16,56 @@
   .vertical-timeline-element-title {
     font-size: 1.2rem;
     font-weight: bold;
+  }
+   */
+   .timeline {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; /* Full height */
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .dropdowns {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .dropdown {
+    padding: 8px;
+    font-size: 1rem;
+    border: 2px solid #652E98;
+    border-radius: 5px;
+    background: white;
+    color: #652E98;
+    cursor: pointer;
+  }
+  
+  .chart-container {
+    width: 80%;
+    height: 90vh; /* Takes up most of the page */
+    margin: auto;
+    background: #fcece0;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #652E98;
   }
   
