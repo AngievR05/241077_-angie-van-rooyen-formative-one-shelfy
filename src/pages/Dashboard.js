@@ -34,8 +34,13 @@ const Dashboard = () => {
             image: item.volumeInfo.imageLinks?.thumbnail || "https://via.placeholder.com/128x190", // Default if no image
           }));
 
-          setBooks(formattedBooks);
-          setTotalBooks(data.totalItems || formattedBooks.length); // Update total books
+          // Filter books that have rating, page count, and image
+          const filteredBooks = formattedBooks.filter(
+            (book) => book.rating > 0 && book.pages > 0 && book.image !== "https://via.placeholder.com/128x190"
+          );
+
+          setBooks(filteredBooks);
+          setTotalBooks(data.totalItems || filteredBooks.length); // Update total books
         }
       } catch (error) {
         console.error("Error fetching books:", error);
