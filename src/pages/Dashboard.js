@@ -91,7 +91,7 @@ const Dashboard = () => {
           <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         </header>
 
-        <div className="main-content">
+        <div className="mainContent">
           {/* Updated to use totalBooks from API */}
           <WelcomeSection totalBooks={totalBooks} />
 

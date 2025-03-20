@@ -20,7 +20,7 @@ const DashboardCard = ({ book }) => {
         <div className="card-back">
           <img src={book.image} alt={book.title} className="book-cover" />
           <h3>{book.title}</h3>
-          <p>{book.author}</p>
+          {/* <p>{book.author}</p> */}
         </div>
       </div>
     </div>

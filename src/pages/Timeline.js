@@ -148,7 +148,7 @@ const Timeline = () => {
         </div>
 
         {/* Chart */}
-        <div className="chart-container">
+        <div className="chartContainer">
           <Line data={chartData} options={chartOptions} />
         </div>
 
