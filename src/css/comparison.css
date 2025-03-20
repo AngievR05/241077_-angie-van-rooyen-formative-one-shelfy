@@ -195,33 +195,44 @@ hr {
 /* Flex container for charts */
 .chart-wrapper {
   display: flex;
-  justify-content: flex-start;
-  gap: 32vh; 
-  flex-wrap: wrap; 
+  justify-content: space-between; /* Align items to the left */
+  align-items: flex-start; /* Align items to the top */
+  gap: 5vw; /* Space between charts */
+  flex-wrap: wrap; /* Ensure responsiveness */
   width: 100%; 
+  padding: 20px;
 }
 
-.chart-container {
+/* Individual chart container */
+.chart-containers {
   display: flex;
-  flex-direction: column; 
-  justify-content: center;
-  width: 35%; 
-  min-width: 250px; 
-  height: 250px;
+  flex-direction: column;
+  align-items: center;
+  width: 35%;
+  max-width: 550px;
+  height: 80%;
+  max-height: 300px;
   text-align: center;
   background-color: #F4DEC9;
   border: 2px solid #961A22;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  margin-left: 20px;
 }
 
+/* Pie chart container */
 .pie-chart-container {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
-  justify-content: center;
+  display: flex;
+  justify-content: flex-start; /* Aligns to the left */
+  align-items: center;
+  width: 450px; /* Adjust as needed */
+  height: 450px;
+}
+
+/* Ensure the chart itself doesn't overflow */
+.pie-chart-container canvas {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .combined-data {
