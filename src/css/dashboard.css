@@ -193,12 +193,13 @@ h2 {
   margin: 5px;
   cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.5s ease-in-out, transform 0.4s ease-in-out;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .genre-buttons button:hover {
   background-color: var(--deep-orange);
+  transform: scale(1.1);
 }
 
 .genre-buttons .active {

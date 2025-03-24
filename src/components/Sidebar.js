@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom"; 
+import { NavLink, useNavigate } from "react-router-dom"; 
 import logo from "../assets/sidebar-icons/Logo 1.png";
 import homeIcon from "../assets/sidebar-icons/home-1-svgrepo-com.svg";
 import comparisonIcon from "../assets/sidebar-icons/code-laptop-svgrepo-com.svg";
@@ -8,6 +8,13 @@ import backIcon from "../assets/sidebar-icons/logout-svgrepo-com.svg";
 import "../css/sidebar.css";
 
 const Sidebar = () => {
+
+  const navigate = useNavigate();
+
+  // Function to go back to the previous page
+  const handleGoBack = () => {
+    navigate(-1); // Navigate back to the previous page in history
+  };
   return (
     <div className="sidebar-container">
       <div className="sidebar-logo-container">
@@ -46,8 +53,8 @@ const Sidebar = () => {
 
         <div className="sidebar-divider"></div>
 
-        <button className="sidebar-logout">
-          <img src={backIcon} alt="Logout" />
+        <button className="sidebar-logout" onClick={handleGoBack}>
+          <img src={backIcon} alt="Go Back" />
         </button>
       </nav>
     </div>

@@ -14,6 +14,7 @@ import {
   Legend,
   CategoryScale,
 } from "chart.js";
+import axios from "axios"; // Import axios
 import "../css/timeline.css";
 
 // Register Chart.js components
@@ -36,11 +37,10 @@ const Timeline = () => {
   const handleSearch = async (e) => {
     if (e.key === "Enter" && searchQuery.trim() !== "") {
       try {
-        const response = await fetch(
+        const response = await axios.get(
           `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&maxResults=15`
         );
-        const data = await response.json();
-        setBooks(data.items || []);
+        setBooks(response.data.items || []);
       } catch (error) {
         console.error("Error fetching books:", error);
       }

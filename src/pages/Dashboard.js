@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios"; // Import Axios
 import Sidebar from "../components/Sidebar";
 import SearchBar from "../components/SearchBar";
 import GenreSelector from "../components/GenreSelector";
@@ -14,14 +15,14 @@ const Dashboard = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [totalBooks, setTotalBooks] = useState(0); // Store total book count
 
-  // Fetch books from Google Books API
+  // Fetch books from Google Books API using Axios
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await fetch(
+        const response = await axios.get(
           `https://www.googleapis.com/books/v1/volumes?q=subject:${selectedGenre}&maxResults=40`
         );
-        const data = await response.json();
+        const data = response.data;
 
         if (data.items) {
           // Transform API response to match our book structure
