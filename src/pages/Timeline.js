@@ -2,8 +2,18 @@ import React, { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import SearchBar from "../components/SearchBar";
 import Footer from "../components/Footer";
+import BookModal from "../components/BookModal";// Import BookModal
 import { Line } from "react-chartjs-2";
-import { Chart as ChartJS, LineElement, PointElement, LinearScale, Title, Tooltip, Legend, CategoryScale } from "chart.js";
+import {
+  Chart as ChartJS,
+  LineElement,
+  PointElement,
+  LinearScale,
+  Title,
+  Tooltip,
+  Legend,
+  CategoryScale,
+} from "chart.js";
 import "../css/timeline.css";
 
 // Register Chart.js components
@@ -14,50 +24,40 @@ const Timeline = () => {
   const [selectedGenre, setSelectedGenre] = useState("All Genres");
   const [searchQuery, setSearchQuery] = useState("");
   const [books, setBooks] = useState([]); // Store API fetched books data
+  const [selectedBook, setSelectedBook] = useState(null); // Track selected book for modal
 
   // List of available genres
   const genres = [
-    "All Genres", "Children's", "Fiction", "NonFiction", "Comics", "Young Adult", "Science Fiction", "Fantasy", "Mystery", "Thriller", "Romance", "Horror",
+    "All Genres", "Children's", "Fiction", "NonFiction", "Comics", "Young Adult", 
+    "Science Fiction", "Fantasy", "Mystery", "Thriller", "Romance", "Horror"
   ];
 
-  // Function to fetch books for a given genre
-  const fetchBooksForGenre = async (genre) => {
-    const url = `https://www.googleapis.com/books/v1/volumes?q=subject:${genre}&maxResults=40`; // Fetching more results
-    const response = await fetch(url);
-    const data = await response.json();
-    return data.items || [];
+  // Fetch books from API when Enter is pressed
+  const handleSearch = async (e) => {
+    if (e.key === "Enter" && searchQuery.trim() !== "") {
+      try {
+        const response = await fetch(
+          `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&maxResults=10`
+        );
+        const data = await response.json();
+        setBooks(data.items || []);
+      } catch (error) {
+        console.error("Error fetching books:", error);
+      }
+    }
   };
 
-  // Fetch books for all genres
-  useEffect(() => {
-    const fetchAllBooks = async () => {
-      let allBooks = [];
-
-      for (let genre of genres) {
-        if (genre !== "All Genres") {
-          const genreBooks = await fetchBooksForGenre(genre);
-          allBooks = [...allBooks, ...genreBooks];
-        }
-      }
-      setBooks(allBooks);
-    };
-
-    fetchAllBooks();
-  }, []);
-
   // Filter books based on genre selection
-  const filteredBooks = selectedGenre === "All Genres"
-    ? books.filter((book) => {
-        // Only keep books with valid genres from the list of specific genres
-        const bookGenres = book.volumeInfo?.categories || [];
-        return bookGenres.some((genre) => genres.includes(genre));
-      })
-    : books.filter((book) => book.volumeInfo?.categories?.includes(selectedGenre));
+  const filteredBooks =
+    selectedGenre === "All Genres"
+      ? books
+      : books.filter((book) =>
+          book.volumeInfo?.categories?.includes(selectedGenre)
+        );
 
   // Extract ratings, publication years, and genres
-  const bookRatings = filteredBooks.map((book) => book.volumeInfo?.averageRating || 0); // Use 0 if no rating
-  const bookPublicationDates = filteredBooks.map((book) => book.volumeInfo?.publishedDate || "0"); // Use 0 if no publication date
-  const bookGenres = filteredBooks.map((book) => book.volumeInfo?.categories || ["Unknown Genre"]);
+  const bookRatings = filteredBooks.map((book) => book.volumeInfo?.averageRating || 0);
+  const bookPublicationDates = filteredBooks.map((book) => book.volumeInfo?.publishedDate || "0");
 
   // Prepare data for the chart
   let datasets = [];
@@ -65,7 +65,7 @@ const Timeline = () => {
   if (filter === "rating" || filter === "both") {
     datasets.push({
       label: "Ratings (Scaled to 100)",
-      data: bookRatings.map(rating => rating * 20), // Scale ratings from 5 stars to 100
+      data: bookRatings.map((rating) => rating * 20),
       borderColor: "#8b1e12",
       backgroundColor: "#8b1e12",
       pointBackgroundColor: "#e76f51",
@@ -92,7 +92,6 @@ const Timeline = () => {
 
   const chartData = { labels: bookLabels, datasets };
 
-  // Tooltip configuration to display genre
   const chartOptions = {
     responsive: true,
     maintainAspectRatio: false,
@@ -100,19 +99,16 @@ const Timeline = () => {
       legend: { display: true, position: "top" },
       tooltip: {
         callbacks: {
-          // Modify the tooltip to show title, publication date, and genre
           label: (tooltipItem) => {
             const index = tooltipItem.dataIndex;
             const book = filteredBooks[index];
             const bookTitle = book.volumeInfo?.title || "Unknown Title";
-            const bookGenre = bookGenres[index].join(", "); // Combine multiple genres if applicable
             const publicationDate = book.volumeInfo?.publishedDate || "Unknown Date";
             const rating = book.volumeInfo?.averageRating || "No Rating";
-
-            return `${bookTitle} - ${publicationDate} - Genre(s): ${bookGenre} - Rating: ${rating}`;
-          }
-        }
-      }
+            return `${bookTitle} - ${publicationDate} - Rating: ${rating}`;
+          },
+        },
+      },
     },
     scales: {
       x: { title: { display: true, text: "Books" } },
@@ -127,8 +123,26 @@ const Timeline = () => {
         {/* Header with Search Bar */}
         <header className="header">
           <h1>Timeline</h1>
-          <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+          <SearchBar 
+            searchQuery={searchQuery} 
+            setSearchQuery={setSearchQuery} 
+            handleSearch={handleSearch} 
+          />
         </header>
+
+        {/* Search Results */}
+        <div className="results-container">
+          {books.map((book) => (
+            <div
+              key={book.id}
+              className="book-item"
+              onClick={() => setSelectedBook(book)}
+            >
+              <img src={book.volumeInfo.imageLinks?.thumbnail} alt="Book Cover" />
+              <p>{book.volumeInfo.title}</p>
+            </div>
+          ))}
+        </div>
 
         {/* Filters Section */}
         <div className="filters">
@@ -151,6 +165,9 @@ const Timeline = () => {
         <div className="chartContainer">
           <Line data={chartData} options={chartOptions} />
         </div>
+
+        {/* Book Modal */}
+        {selectedBook && <BookModal book={selectedBook} onClose={() => setSelectedBook(null)} />}
 
         {/* Footer */}
         <Footer />
