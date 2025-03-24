@@ -8,7 +8,7 @@ import Sidebar from "../components/Sidebar";
 import SearchBar from "../components/SearchBar";
 import Footer from "../components/Footer";
 
-const API_KEY = "AIzaSyA7mXKt4iqz0avsa48GNy4_Bdv__8sRuWs"; // Replace with your API key
+const API_KEY = "AIzaSyA7mXKt4iqz0avsa48GNy4_Bdv__8sRuWs"; 
 
 const ComparisonPage = () => {
   const [book1, setBook1] = useState(null);

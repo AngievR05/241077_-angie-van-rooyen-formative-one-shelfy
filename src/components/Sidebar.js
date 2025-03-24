@@ -13,7 +13,7 @@ const Sidebar = () => {
 
   // Function to go back to the previous page
   const handleGoBack = () => {
-    navigate(-1); // Navigate back to the previous page in history
+    navigate(-1);
   };
   return (
     <div className="sidebar-container">

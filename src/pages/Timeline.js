@@ -4,17 +4,8 @@ import SearchBar from "../components/SearchBar";
 import Footer from "../components/Footer";
 import BookModal from "../components/BookModal"; // Import BookModal
 import { Line } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  LineElement,
-  PointElement,
-  LinearScale,
-  Title,
-  Tooltip,
-  Legend,
-  CategoryScale,
-} from "chart.js";
-import axios from "axios"; // Import axios
+import {Chart as ChartJS, LineElement, PointElement, LinearScale, Title, Tooltip, Legend, CategoryScale,} from "chart.js";
+import axios from "axios"; 
 import "../css/timeline.css";
 
 // Register Chart.js components
@@ -120,7 +111,6 @@ const Timeline = () => {
     <div className="timeline">
       <Sidebar />
       <div className="main-content">
-        {/* Header with Search Bar */}
         <header className="header">
           <h1>Timeline</h1>
           <SearchBar 
@@ -130,7 +120,6 @@ const Timeline = () => {
           />
         </header>
 
-        {/* Search Results Grid Layout */}
         <div className="results-container">
           <div className="book-grid">
             {filteredBooks.map((book) => (
@@ -146,7 +135,6 @@ const Timeline = () => {
           </div>
         </div>
 
-        {/* Filters Section */}
         <div className="filters">
           <h2>Book Trends Over Time</h2>
           <div className="dropdowns">
@@ -163,15 +151,12 @@ const Timeline = () => {
           </div>
         </div>
 
-        {/* Chart */}
         <div className="chartContainer">
           <Line data={chartData} options={chartOptions} />
         </div>
 
-        {/* Book Modal */}
         {selectedBook && <BookModal book={selectedBook} onClose={() => setSelectedBook(null)} />}
 
-        {/* Footer */}
         <Footer />
       </div>
     </div>

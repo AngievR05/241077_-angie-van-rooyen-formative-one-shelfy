@@ -9,8 +9,6 @@
   --beige: #F4DEC9;
   --deep-red: #6D0000;
   --black: #000000;
-}
-:root {
   --primary-bg: #f5ebe1;
   --primary-dark: #8b1e12;
   --primary-light: #f4a261;
@@ -18,10 +16,11 @@
   --text-dark: #3d1c0d;
   --text-light: #fff;
   --border-radius: 12px;
+  --font-family: 'Roboto', sans-serif;
 }
-  
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: var(--font-family);
   background-color: #F8F7F3;
   color: var(--black);
   margin: 0;
@@ -31,14 +30,13 @@ body {
 .dashboard {
   display: flex;
 }
-  
+
 .content {
   flex-grow: 1;
   padding: 10px;
   background-color: var(--light-bg);
   width: calc(100% - 20px);
   margin-left: 10px;
-  margin-left: 0;
 }
 
 .header {
@@ -48,9 +46,10 @@ body {
   color: black;
   padding: 15px 20px;
 }
-  
+
 .header h1 {
   margin: 0;
+  font-size: 2.5rem;
 }
 
 .search-container {
@@ -58,20 +57,20 @@ body {
   width: 125px;
   margin-right: 55px;
 }
-  
+
 .search-bar {
-  padding: 8px 30px 8px 40px; 
+  padding: 8px 30px 8px 40px;
   border: 1px solid #BF2D1E;
   border-radius: 20px;
-  width: 100%; 
+  width: 100%;
   background-color: #F4DEC9;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
-  
+
 .search-bar:focus {
-  outline: none;
+  outline: 3px solid #ECAF23;
 }
-  
+
 .search-icon {
   position: absolute;
   left: 10px;
@@ -79,13 +78,13 @@ body {
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
-  z-index: 1; 
+  z-index: 1;
 }
-  
+
 .search-bar:focus + .search-icon {
-  fill: #961A22; 
+  fill: #961A22;
 }
-  
+
 .mainContent {
   margin-left: 20px;
 }
@@ -202,6 +201,15 @@ h2 {
   transform: scale(1.1);
 }
 
+.genre-buttons button:active {
+  transform: scale(0.98);
+}
+
+.genre-buttons button:disabled {
+  background-color: #D3D3D3;
+  cursor: not-allowed;
+}
+
 .genre-buttons .active {
   background-color: var(--gold);
   color: var(--black);
@@ -216,11 +224,11 @@ h2 {
 
 hr {
   border-top: 3px solid #6D0000;
-  height: 0; 
-  border-radius: 10px; 
-  width: 100%; 
-  display: block !important; 
-  visibility: visible !important; 
+  height: 0;
+  border-radius: 10px;
+  width: 100%;
+  display: block !important;
+  visibility: visible !important;
   flex-basis: 100%;
   margin-left: 0;
 }
@@ -238,4 +246,23 @@ hr {
   fill: inherit !important;
 }
 
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
 
+  .content {
+    margin: 0;
+    padding: 10px;
+  }
+
+  .search-container {
+    width: 100%;
+    margin-right: 0;
+  }
+  
+  .welcome-text,
+  .total-books {
+    width: 100%;
+  }
+}

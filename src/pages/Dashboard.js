@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios"; // Import Axios
+import axios from "axios"; 
 import Sidebar from "../components/Sidebar";
 import SearchBar from "../components/SearchBar";
 import GenreSelector from "../components/GenreSelector";
@@ -8,6 +8,7 @@ import BookList from "../components/BookList";
 import ChartSection from "../components/ChartSection";
 import Footer from "../components/Footer";
 import "../css/dashboard.css";
+import PlaceholderImage from "../assets/images/placeholder.jpg";
 
 const Dashboard = () => {
   const [books, setBooks] = useState([]); // Store books from API
@@ -29,10 +30,10 @@ const Dashboard = () => {
           const formattedBooks = data.items.map((item) => ({
             id: item.id,
             title: item.volumeInfo.title || "Unknown Title",
-            genre: selectedGenre, // Since we query by genre
+            // Since we query by genre
             rating: item.volumeInfo.averageRating || 0,
             pages: item.volumeInfo.pageCount || 0,
-            image: item.volumeInfo.imageLinks?.thumbnail || "https://via.placeholder.com/128x190", // Default if no image
+            image: item.volumeInfo.imageLinks?.thumbnail || PlaceholderImage, // Default if no image
           }));
 
           setBooks(formattedBooks);
@@ -50,9 +51,9 @@ const Dashboard = () => {
   const filteredBooks = books
     .filter(
       (book) =>
-        book.rating > 0 && // Ensure the book has a rating
-        book.pages > 0 && // Ensure the book has a page count
-        book.image !== "https://via.placeholder.com/128x190" // Ensure the book has an image
+        book.rating > 0 && 
+        book.pages > 0 && 
+        book.image !== "https://via.placeholder.com/128x190" 
     )
     .filter((book) =>
       book.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -93,7 +94,6 @@ const Dashboard = () => {
         </header>
 
         <div className="mainContent">
-          {/* Updated to use totalBooks from API */}
           <WelcomeSection totalBooks={totalBooks} />
 
           <hr />
@@ -124,16 +124,13 @@ const Dashboard = () => {
 
           <hr />
 
-          {/* BookList now includes images */}
           <BookList books={booksToShow} title={`Top 15 Books of ${selectedGenre}`} />
 
           <hr />
 
-          {/* Rating Chart */}
           <ChartSection data={ratingData} title="The Rating Shelf" dataKey="rating" colors={colors} />
           <hr />
 
-          {/* Pages Chart */}
           <ChartSection data={pageData} title="The Page Shelf" dataKey="pages" colors={colors} />
         </div>
         <Footer />
