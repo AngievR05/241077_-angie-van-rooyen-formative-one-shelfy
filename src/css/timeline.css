@@ -65,3 +65,40 @@
     flex-basis: 100%;
     margin-left: 0;
   }
+
+  .results-container {
+    display: flex;           /* Enable flexbox for horizontal layout */
+    flex-wrap: wrap;         /* Allow items to wrap if the container is full */
+    justify-content: flex-start; /* Align items to the left */
+    gap: 20px;               /* Add space between the items */
+    margin-top: 20px;
+  }
+  
+  .book-grid {
+    display: flex;           /* Use flexbox for the grid */
+    gap: 20px;               /* Space between each book */
+    flex-wrap: wrap;         /* Wrap the items to the next line if space is insufficient */
+  }
+  
+  .book-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    width: 200px;            /* Set a fixed width for each book item */
+    box-sizing: border-box;  /* Include padding and border in the width calculation */
+  }
+  
+  .book-item img {
+    max-width: 100%;         /* Ensure the image fits within the book item */
+    height: auto;            /* Maintain the image aspect ratio */
+    border-radius: 8px;
+  }
+  
+  .book-item p {
+    font-size: 14px;
+    margin-top: 8px;
+    color: #333;
+  }
+  

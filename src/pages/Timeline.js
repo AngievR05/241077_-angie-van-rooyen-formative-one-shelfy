@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import SearchBar from "../components/SearchBar";
 import Footer from "../components/Footer";
-import BookModal from "../components/BookModal";// Import BookModal
+import BookModal from "../components/BookModal"; // Import BookModal
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -37,7 +37,7 @@ const Timeline = () => {
     if (e.key === "Enter" && searchQuery.trim() !== "") {
       try {
         const response = await fetch(
-          `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&maxResults=10`
+          `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&maxResults=15`
         );
         const data = await response.json();
         setBooks(data.items || []);
@@ -130,18 +130,20 @@ const Timeline = () => {
           />
         </header>
 
-        {/* Search Results */}
+        {/* Search Results Grid Layout */}
         <div className="results-container">
-          {books.map((book) => (
-            <div
-              key={book.id}
-              className="book-item"
-              onClick={() => setSelectedBook(book)}
-            >
-              <img src={book.volumeInfo.imageLinks?.thumbnail} alt="Book Cover" />
-              <p>{book.volumeInfo.title}</p>
-            </div>
-          ))}
+          <div className="book-grid">
+            {filteredBooks.map((book) => (
+              <div
+                key={book.id}
+                className="book-item"
+                onClick={() => setSelectedBook(book)}
+              >
+                <img src={book.volumeInfo.imageLinks?.thumbnail} alt="Book Cover" />
+                <p>{book.volumeInfo.title}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Filters Section */}
