@@ -21,7 +21,7 @@ const Dashboard = () => {
     const fetchBooks = async () => {
       try {
         const response = await axios.get(
-          `https://www.googleapis.com/books/v1/volumes?q=subject:${selectedGenre}&maxResults=40`
+          `https://www.googleapis.com/books/v1/volumes?q=subject:${selectedGenre}&maxResults=15`
         );
         const data = response.data;
 
